@@ -20,3 +20,4 @@
 #echo 'Husky.Net is awesome!'
 
 dotnet husky run
+dotnet format 3DFPSGame.sln --verify-no-changes --severity warn --include Assets/02.Scripts/
