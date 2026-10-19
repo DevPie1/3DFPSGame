@@ -1,0 +1,23 @@
+{
+  "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
+  "tasks": [
+    {
+      "name": "meta-check",
+      "group": "pre-commit",
+      "command": "bash",
+      "args": [".husky/check-meta.sh"]
+    },
+    {
+      "name": "forbidden-folders",
+      "group": "pre-commit",
+      "command": "bash",
+      "args": [".husky/check-forbidden.sh"]
+    },
+    {
+      "name": "commit-message-check",
+      "group": "commit-msg",
+      "command": "bash",
+      "args": [".husky/check-commit-msg.sh", "${args}"]
+    }
+  ]
+}
