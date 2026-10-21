@@ -5,15 +5,13 @@ using Lean.Pool;
 // 폭탄은 최대 10개까지 들 수 있고, G 키로 재장전한다. (예비 폭탄은 무한)
 public class PlayerBombFire : MonoBehaviour
 {
-    [Header("던지기")]
-    [SerializeField] private Transform _firePoint;
+    [Header("던지기")][SerializeField] private Transform _firePoint;
     [SerializeField] private Bomb _bombPrefab;
     [SerializeField] private float _minThrowPower = 5f;
     [SerializeField] private float _maxThrowPower = 20f;
     [SerializeField] private float _maxChargeTime = 1.5f; // 최대 힘까지 걸리는 시간
 
-    [Header("폭탄")]
-    [SerializeField] private int _maxBombs = 10;
+    [Header("폭탄")][SerializeField] private int _maxBombs = 10;
     [SerializeField] private float _reloadTime = 2f;
     [SerializeField] private KeyCode _reloadKey = KeyCode.G;
 

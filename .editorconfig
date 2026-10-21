@@ -13,6 +13,10 @@ indent_size = 4
 # 여는 중괄호: 새 줄
 csharp_new_line_before_open_brace = all
 
+# Rider 포맷터도 dotnet format과 동일하게 속성 사이 공백을 제거한다.
+# (예: [Header("...")][SerializeField] — 사이에 공백을 넣지 않음)
+resharper_csharp_space_between_attribute_sections = false
+
 # 이름 규칙: private 필드는 _camelCase
 dotnet_naming_rule.private_fields_with_underscore.severity = warning
 dotnet_naming_rule.private_fields_with_underscore.symbols = private_fields
