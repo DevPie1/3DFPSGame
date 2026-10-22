@@ -109,7 +109,12 @@ public class PlayerGunFire : MonoBehaviour
         bool isHit = Physics.Raycast(ray, out hitInfo, _range);
         if (isHit)
         {
-            // Debug.Log($"{hitInfo.collider.name}이 총알을 맞았다. 대미지: {_damage}");
+            // 맞은 대상이 드럼통이면 체력을 깎는다.
+            DrumCylinder drum = hitInfo.collider.GetComponentInParent<DrumCylinder>();
+            if (drum != null)
+            {
+                drum.Damage(_damage);
+            }
 
             ParticleSystem effect = Instantiate(_hitEffectPrefab);
             effect.transform.position = hitInfo.point; // 맞은 자리
