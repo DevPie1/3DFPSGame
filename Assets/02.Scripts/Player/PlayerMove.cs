@@ -9,6 +9,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _moveSpeed = 7f;
     [SerializeField] private float _sprintSpeed = 12f;
 
+    [Header("스태미나")]
+    [SerializeField] private PlayerStats _stats;
+
     [Header("점프")]
     [SerializeField] private float _jumpPower = 10f;
     [SerializeField] private int _maxJumps = 2;
@@ -29,6 +32,11 @@ public class PlayerMove : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+
+        if (_stats == null)
+        {
+            _stats = GetComponent<PlayerStats>();
+        }
     }
 
     private void Update()
@@ -123,7 +131,16 @@ public class PlayerMove : MonoBehaviour
         direction = transform.TransformDirection(direction);
 
         // 3. 속도를 구한다.
-        float currentSpeed = Input.GetButton("Sprint") ? _sprintSpeed : _moveSpeed;
+        // 스태미나가 있으면 달리기, 없으면 걷기 속도로 전환한다.
+        bool wantsSprint = Input.GetButton("Sprint") && direction.sqrMagnitude > 0.01f;
+
+        if (!wantsSprint && _stats != null)
+        {
+            _stats.ReleaseSprintLock();
+        }
+
+        bool isSprinting = wantsSprint && (_stats == null || _stats.TrySprint(Time.deltaTime));
+        float currentSpeed = isSprinting ? _sprintSpeed : _moveSpeed;
         Vector3 velocity = direction * currentSpeed;
         velocity.y = _yVelocity;
 

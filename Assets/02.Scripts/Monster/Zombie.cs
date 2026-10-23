@@ -18,14 +18,16 @@ public enum ZombieState
     Death, // 죽음: 쓰러지고 잠시 뒤 사라진다.
 }
 
-public class Zombie : MonoBehaviour
+public class Zombie : MonoBehaviour, IDamageable
 {
     [Header("스탯")][SerializeField] private float _detectDistance = 8; // 플레이어를 발견하는 거리
     [SerializeField] private float _combackDistance = 15; // 처음 자리에서 이만큼 멀어지면 돌아가는 거리
     [SerializeField] private float _attackRange = 1.5f; // 공격 범위
     [SerializeField] private float _attackInterval = 1.2f; // 공격 간격
+    [SerializeField] private float _attackDamage = 10f; // 공격 한 번의 대미지
     [SerializeField] private float _moveSpeed = 5; // 이동속도
-    [SerializeField] private float _health = 30;
+    [SerializeField] private float _maxHealth = 30;
+    [SerializeField] private float _health;
 
 
     private float _attackTimer = 0f;
@@ -33,11 +35,15 @@ public class Zombie : MonoBehaviour
     private Vector3 _startPosition;
     private GameObject _player;
 
+    public float MaxHealth => _maxHealth;
+    public float Health => _health;
 
     private ZombieState _state = ZombieState.Idle;
 
     private void Start()
     {
+        _health = _maxHealth;
+
         _controller = GetComponent<CharacterController>();
         _startPosition = transform.position;
 
@@ -192,7 +198,7 @@ public class Zombie : MonoBehaviour
         if (_attackTimer >= _attackInterval)
         {
             // Todo. 공격 애니메이션 실행
-            // Todo. 플레이어를 때려!
+            _player.GetComponent<IDamageable>()?.TakeDamage(_attackDamage);
             Debug.Log("플레이어를 때렸습니다.");
             _attackTimer = 0f;
         }

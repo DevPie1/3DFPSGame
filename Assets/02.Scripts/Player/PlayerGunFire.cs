@@ -1,96 +1,71 @@
+using System.Collections;
 using UnityEngine;
 
 
 // 마우스 왼쪽 버튼을 누르면 바라보는 방향으로 총알을 발사하고 싶다.
-// 탄창이 비면 발사할 수 없고, R 키로 재장전한다. (예비 탄약은 무한)
 public class PlayerGunFire : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _hitEffectPrefab;
 
-    [Header("스탯")]
+    [Header("스탯")][SerializeField] private int _maxBulletCount = 30;
+    [SerializeField] private float _reloadingTime = 3f;
     [SerializeField] private float _range = 100f; // 사거리
     [SerializeField] private float _damage = 10f; // 공격력
     [SerializeField] private float _fireInterval = 0.1f; // 발사 속도
+
     private float _fireTimer = 0f;
+    private int _bulletCount = 0;
+    private Coroutine _reloadCoroutine = null;
 
-    [Header("탄창")]
-    [SerializeField] private int _magazineSize = 50;
-    [SerializeField] private float _reloadTime = 1.5f;
 
-    private int _currentAmmo;
-    private float _reloadTimer;
-    private bool _isReloading;
-
-    public int CurrentAmmo => _currentAmmo;
-    public int MagazineSize => _magazineSize;
-    public bool IsReloading => _isReloading;
-
-    private void Awake()
+    private void Start()
     {
-        _currentAmmo = _magazineSize;
+        _bulletCount = _maxBulletCount;
     }
+
 
     private void Update()
     {
-        UpdateReload();
-
-        // R 키를 누르면 재장전한다.
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            TryReload();
-        }
-
         // 0. 발사 타이머를 지난 시간만큼 줄인다.
         _fireTimer -= Time.deltaTime;
 
         // 1. 마우스 왼쪽 버튼 입력 받기
-        if (Input.GetButton("Fire1") && _fireTimer <= 0f)
+        if (Input.GetButton("Fire1") && _fireTimer <= 0f && _bulletCount > 0)
         {
-            TryShoot();
+            _bulletCount--;
+            _fireTimer = _fireInterval;
+            Shoot();
+
+            // 이 방식은: 이 모노비헤이비어가 등록한 모든 코루틴을 실행 취소
+            // StopAllCoroutines();
+
+            if (_reloadCoroutine != null)
+            {
+                StopCoroutine(_reloadCoroutine);
+                Debug.Log("재장전 취소!");
+                _reloadCoroutine = null;
+            }
+        }
+
+        // 2. R키 누르면 총알 재장전 시작
+        if (Input.GetKeyDown(KeyCode.R) && _reloadCoroutine == null)
+        {
+            _reloadCoroutine = StartCoroutine(Reloading_Coroutine());
         }
     }
 
-    private void TryShoot()
+    private IEnumerator Reloading_Coroutine()
     {
-        // 재장전 중이거나 탄약이 없으면 발사하지 않는다.
-        if (_isReloading || _currentAmmo <= 0)
-        {
-            return;
-        }
+        Debug.Log("재장전 시작!");
 
-        _currentAmmo--;
-        _fireTimer = _fireInterval;
-        Shoot();
+        yield return new WaitForSeconds(_reloadingTime);
+
+        _bulletCount = _maxBulletCount;
+
+        Debug.Log("재장전 완료!");
+        _reloadCoroutine = null;
     }
 
-    private void TryReload()
-    {
-        // 이미 재장전 중이거나 탄창이 가득 차 있으면 무시한다.
-        if (_isReloading || _currentAmmo >= _magazineSize)
-        {
-            return;
-        }
-
-        _isReloading = true;
-        _reloadTimer = _reloadTime;
-    }
-
-    private void UpdateReload()
-    {
-        if (!_isReloading)
-        {
-            return;
-        }
-
-        _reloadTimer -= Time.deltaTime;
-        if (_reloadTimer > 0f)
-        {
-            return;
-        }
-
-        _currentAmmo = _magazineSize;
-        _isReloading = false;
-    }
 
     private void Shoot()
     {
@@ -109,17 +84,26 @@ public class PlayerGunFire : MonoBehaviour
         bool isHit = Physics.Raycast(ray, out hitInfo, _range);
         if (isHit)
         {
-            // 맞은 대상이 드럼통이면 체력을 깎는다.
-            DrumCylinder drum = hitInfo.collider.GetComponentInParent<DrumCylinder>();
-            if (drum != null)
-            {
-                drum.Damage(_damage);
-            }
+            // Debug.Log($"{hitInfo.collider.name}이 총알을 맞았다. 대미지: {_damage}");
 
+            // 맞은 자리에 총알 자국 이펙트 만들기
             ParticleSystem effect = Instantiate(_hitEffectPrefab);
             effect.transform.position = hitInfo.point; // 맞은 자리
             effect.transform.forward = hitInfo.normal; // 수직 위치로 회전
             effect.Play();
+
+            hitInfo.collider.GetComponent<IDamageable>()?.TakeDamage(_damage);
+
+            /*
+             hitInfo.collider.GetComponent<Zombie>()?.TakeDamage(_damage);
+            hitInfo.collider.GetComponent<Drum>()?.TakeDamage(_damage);
+            hitInfo.collider.GetComponent<Box>()?.TakeDamage(_damage);
+            */
+
+
+            // 황유찬 :         Player
+            // 김민쉬:     Zombie, Boss
+            // 박현서:  Drum, Box, Bird
         }
     }
 }

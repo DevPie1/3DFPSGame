@@ -41,48 +41,4 @@ public class AmmoHud : MonoBehaviour
             rect.sizeDelta = new Vector2(rect.sizeDelta.x, 90f);
         }
     }
-
-    private void Update()
-    {
-        if (_ammoText == null)
-        {
-            return;
-        }
-
-        // 기본 폰트에 한글이 없어 영문으로 표시한다.
-        _ammoText.text = $"{GetGunLine()}\n{GetBombLine()}";
-    }
-
-    private string GetGunLine()
-    {
-        if (_gun == null)
-        {
-            return "AMMO -";
-        }
-
-        return _gun.IsReloading
-            ? "AMMO RELOADING..."
-            : $"AMMO {_gun.CurrentAmmo} / INF";
-    }
-
-    private string GetBombLine()
-    {
-        if (_bomb == null)
-        {
-            return "BOMB -";
-        }
-
-        if (_bomb.IsReloading)
-        {
-            return "BOMB RELOADING...";
-        }
-
-        if (_bomb.IsCharging)
-        {
-            int percent = Mathf.RoundToInt(_bomb.ChargeRatio * 100f);
-            return $"BOMB {_bomb.CurrentBombs} / INF  {percent}%";
-        }
-
-        return $"BOMB {_bomb.CurrentBombs} / INF";
-    }
 }
