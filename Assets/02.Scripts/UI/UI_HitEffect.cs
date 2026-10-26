@@ -5,6 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class UI_HitEffect : MonoBehaviour
 {
+    [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private float _flashTime = 0.06f;
     [SerializeField] private float _fadeTime = 0.3f;
 
@@ -12,6 +13,11 @@ public class UI_HitEffect : MonoBehaviour
 
     private void Awake()
     {
+        if (_playerStats == null)
+        {
+            _playerStats = FindFirstObjectByType<PlayerStats>();
+        }
+
         _image = GetComponent<Image>();
         _image.raycastTarget = false;
         SetAlpha(0f);
@@ -23,6 +29,28 @@ public class UI_HitEffect : MonoBehaviour
         rect.anchorMax = Vector2.one;
         rect.offsetMin = Vector2.zero;
         rect.offsetMax = Vector2.zero;
+    }
+
+    private void OnEnable()
+    {
+        if (_playerStats != null)
+        {
+            _playerStats.OnDamaged += OnPlayerDamaged;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_playerStats != null)
+        {
+            _playerStats.OnDamaged -= OnPlayerDamaged;
+        }
+    }
+
+    // 이벤트가 전달하는 값을 쓰지 않아도 콜백의 매개변수 모양은 맞춘다.
+    private void OnPlayerDamaged(float health, float maxHealth)
+    {
+        Fade(0.7f);
     }
 
     // 피격 순간에 호출한다. 잠깐 밝게 보였다가 서서히 사라진다.

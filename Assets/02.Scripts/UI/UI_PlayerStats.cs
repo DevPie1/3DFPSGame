@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// 플레이어의 체력/스태미나를 Slider로 표시한다.
+// 체력은 변경 알림을 받아 갱신하고, 스태미나는 매 프레임 표시한다.
 public class UI_PlayerStats : MonoBehaviour
 {
     [SerializeField] private PlayerStats _playerStats;
@@ -19,6 +19,25 @@ public class UI_PlayerStats : MonoBehaviour
         SetupSlider(_staminaSlider);
     }
 
+    private void OnEnable()
+    {
+        if (_playerStats == null)
+        {
+            return;
+        }
+
+        _playerStats.OnHealthChanged += RefreshHealth;
+        RefreshHealth(_playerStats.Health, _playerStats.MaxHealth);
+    }
+
+    private void OnDisable()
+    {
+        if (_playerStats != null)
+        {
+            _playerStats.OnHealthChanged -= RefreshHealth;
+        }
+    }
+
     private void Update()
     {
         if (_playerStats == null)
@@ -26,14 +45,17 @@ public class UI_PlayerStats : MonoBehaviour
             return;
         }
 
-        if (_healthSlider != null)
-        {
-            _healthSlider.value = _playerStats.Health01;
-        }
-
         if (_staminaSlider != null)
         {
             _staminaSlider.value = _playerStats.Stamina01;
+        }
+    }
+
+    private void RefreshHealth(float health, float maxHealth)
+    {
+        if (_healthSlider != null)
+        {
+            _healthSlider.value = maxHealth > 0f ? Mathf.Clamp01(health / maxHealth) : 0f;
         }
     }
 

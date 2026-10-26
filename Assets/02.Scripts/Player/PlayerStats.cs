@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // 플레이어의 체력과 스태미나를 관리한다.
@@ -6,7 +7,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
 {
     [Header("체력")][SerializeField] private float _maxHealth = 100f;
     [SerializeField] private float _health;
-    [SerializeField] private UI_HitEffect _uiHitEffect;
 
     [Header("스태미나")][SerializeField] private float _maxStamina = 100f;
     [SerializeField] private float _stamina;
@@ -28,17 +28,17 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     public bool IsDead => _health <= 0f;
 
+    // (현재 체력, 최대 체력)을 전달한다. UI가 누구인지는 알 필요가 없다.
+    public event Action<float, float> OnDamaged;
+    public event Action<float, float> OnHealthChanged;
+
     private void Awake()
     {
         _health = _maxHealth;
         _stamina = _maxStamina;
         _sprintLocked = false;
 
-        // Inspector 연결이 빠져 있어도 씬에서 찾아서 사용한다.
-        if (_uiHitEffect == null)
-        {
-            _uiHitEffect = FindFirstObjectByType<UI_HitEffect>();
-        }
+        OnHealthChanged?.Invoke(_health, _maxHealth);
     }
 
     private void OnValidate()
@@ -111,8 +111,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
         _health = Mathf.Max(0f, _health - damage);
 
-        // 피격 화면 효과
-        _uiHitEffect?.Flash(0.4f);
+        OnHealthChanged?.Invoke(_health, _maxHealth);
+        OnDamaged?.Invoke(_health, _maxHealth);
 
         if (_health <= 0f)
         {
@@ -128,7 +128,14 @@ public class PlayerStats : MonoBehaviour, IDamageable
             return;
         }
 
-        _health = Mathf.Min(_maxHealth, _health + amount);
+        float health = Mathf.Min(_maxHealth, _health + amount);
+        if (health == _health)
+        {
+            return;
+        }
+
+        _health = health;
+        OnHealthChanged?.Invoke(_health, _maxHealth);
     }
 
     public void RestoreStamina(float amount)

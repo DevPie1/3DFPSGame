@@ -10,6 +10,12 @@ namespace _02.Scripts.Player
 
         private void Update()
         {
+            // 커서가 풀려 있으면(UI를 누르는 중이면) 시선을 돌리지 않는다.
+            if (Cursor.lockState != CursorLockMode.Locked)
+            {
+                return;
+            }
+
             float mouseX = Input.GetAxis("Mouse X");
             _accumulationX += mouseX * _rotationSpeed * Time.deltaTime;
 

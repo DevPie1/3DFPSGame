@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 // 마우스 왼쪽 버튼을 누르면 바라보는 방향으로 총알을 발사하고 싶다.
@@ -30,7 +31,11 @@ public class PlayerGunFire : MonoBehaviour
         _fireTimer -= Time.deltaTime;
 
         // 1. 마우스 왼쪽 버튼 입력 받기
-        if (Input.GetButton("Fire1") && _fireTimer <= 0f && _bulletCount > 0)
+        // 커서가 잠겨 있고, 마우스가 UI 위에 있지 않을 때만 쏜다.
+        bool isPointerOverUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+        bool canShoot = Cursor.lockState == CursorLockMode.Locked && !isPointerOverUI;
+
+        if (Input.GetButton("Fire1") && canShoot && _fireTimer <= 0f && _bulletCount > 0)
         {
             _bulletCount--;
             _fireTimer = _fireInterval;

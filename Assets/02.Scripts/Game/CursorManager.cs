@@ -7,6 +7,25 @@ public class CursorManager : MonoBehaviour
         LockCursor();
     }
 
+    private void Update()
+    {
+        // GameManager가 있으면 게임 중일 때만 커서를 조작한다.
+        if (GameManager.Instance != null && GameManager.Instance.State != GameState.Playing)
+        {
+            return;
+        }
+
+        // 왼쪽 Alt를 누르고 있는 동안만 커서를 보여 준다.
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            UnlockCursor();
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            LockCursor();
+        }
+    }
+
     public void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked; // 화면 가운데에 고정

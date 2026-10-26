@@ -9,6 +9,12 @@ public class CameraRotate : MonoBehaviour
 
     private void Update()
     {
+        // 커서가 풀려 있으면(UI를 누르는 중이면) 시선을 돌리지 않는다.
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            return;
+        }
+
         // 1. 마우스 입력을 받는다
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
