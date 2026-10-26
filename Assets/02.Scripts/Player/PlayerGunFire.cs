@@ -14,10 +14,42 @@ public class PlayerGunFire : MonoBehaviour
     [SerializeField] private float _damage = 10f; // 공격력
     [SerializeField] private float _fireInterval = 0.1f; // 발사 속도
 
+    [Header("발사 레이저")][SerializeField] private Material _laserMaterial;
+    [SerializeField] private Transform _muzzle;
+    [SerializeField, Min(0.01f)] private float _laserDuration = 0.06f;
+    [SerializeField, Min(0.001f)] private float _laserWidth = 0.025f;
+
+    private LineRenderer _laser;
+    private Camera _mainCamera;
+    private float _laserTimer;
+
     private float _fireTimer = 0f;
     private int _bulletCount = 0;
     private Coroutine _reloadCoroutine = null;
 
+
+    private void Awake()
+    {
+        _mainCamera = Camera.main;
+        if (_laserMaterial == null)
+        {
+            Debug.LogWarning("[PlayerGunFire] 레이저 머티리얼을 연결해 주세요.", this);
+            return;
+        }
+
+        GameObject laserObject = new GameObject("GunLaser");
+        laserObject.layer = gameObject.layer;
+        laserObject.transform.SetParent(transform, false);
+        _laser = laserObject.AddComponent<LineRenderer>();
+        _laser.sharedMaterial = _laserMaterial;
+        _laser.useWorldSpace = true;
+        _laser.positionCount = 2;
+        _laser.startWidth = _laserWidth;
+        _laser.endWidth = _laserWidth;
+        _laser.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        _laser.receiveShadows = false;
+        _laser.enabled = false;
+    }
 
     private void Start()
     {
@@ -29,6 +61,11 @@ public class PlayerGunFire : MonoBehaviour
     {
         // 0. 발사 타이머를 지난 시간만큼 줄인다.
         _fireTimer -= Time.deltaTime;
+        _laserTimer -= Time.deltaTime;
+        if (_laser != null && _laserTimer <= 0f)
+        {
+            _laser.enabled = false;
+        }
 
         // 1. 마우스 왼쪽 버튼 입력 받기
         // 커서가 잠겨 있고, 마우스가 UI 위에 있지 않을 때만 쏜다.
@@ -72,43 +109,49 @@ public class PlayerGunFire : MonoBehaviour
     }
 
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        _reloadCoroutine = null;
+        if (_laser != null) _laser.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        if (_laser != null) Destroy(_laser.gameObject);
+    }
+
     private void Shoot()
     {
-        // Ray: 레이저(시작위치, 날아갈 방향)
-        // Physics.RayCast: 레이저를 발사
-        // RayCastHit: 레이저가 물체와 부딛히면 그 정보를 저장하는 구조체
+        if (_mainCamera == null) _mainCamera = Camera.main;
+        if (_mainCamera == null) return;
 
-        // 2. 레이(광선)를 생성하고 발사될 위치와 진행 방향 설정하기
-        Transform cameraTransform = Camera.main.transform;
+        Transform cameraTransform = _mainCamera.transform;
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        bool isHit = Physics.Raycast(ray, out RaycastHit hitInfo, _range);
+        Vector3 end = isHit ? hitInfo.point : ray.GetPoint(_range);
+        ShowLaser(cameraTransform, end);
 
-        // 3. 레이가 부딛힌 대상의 정보를 저장할 변수 생성하기
-        RaycastHit hitInfo = new RaycastHit();
-
-        // 4. 레이를 발사하고, 만일 부딛힌 물체가 있다면 이펙트 표시하기
-        bool isHit = Physics.Raycast(ray, out hitInfo, _range);
-        if (isHit)
+        if (!isHit) return;
+        if (_hitEffectPrefab != null)
         {
-            // Debug.Log($"{hitInfo.collider.name}이 총알을 맞았다. 대미지: {_damage}");
-
-            // 맞은 자리에 총알 자국 이펙트 만들기
-            ParticleSystem effect = Instantiate(_hitEffectPrefab);
-            effect.transform.position = hitInfo.point; // 맞은 자리
-            effect.transform.forward = hitInfo.normal; // 수직 위치로 회전
+            ParticleSystem effect = Instantiate(_hitEffectPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             effect.Play();
-
-            hitInfo.collider.GetComponent<IDamageable>()?.TakeDamage(_damage);
-
-            /*
-             hitInfo.collider.GetComponent<Zombie>()?.TakeDamage(_damage);
-            hitInfo.collider.GetComponent<Drum>()?.TakeDamage(_damage);
-            hitInfo.collider.GetComponent<Box>()?.TakeDamage(_damage);
-            */
-
-
-            // 황유찬 :         Player
-            // 김민쉬:     Zombie, Boss
-            // 박현서:  Drum, Box, Bird
         }
+
+        hitInfo.collider.GetComponentInParent<IDamageable>()?.TakeDamage(_damage);
+    }
+
+    private void ShowLaser(Transform cameraTransform, Vector3 end)
+    {
+        if (_laser == null) return;
+        // 총구가 없으면 화면 오른쪽 아래에서 시작해 선이 시선과 겹치지 않게 한다.
+        Vector3 start = _muzzle != null ? _muzzle.position
+            : cameraTransform.position + cameraTransform.forward * 0.5f
+              + cameraTransform.right * 0.15f - cameraTransform.up * 0.12f;
+        _laser.SetPosition(0, start);
+        _laser.SetPosition(1, end);
+        _laser.enabled = true;
+        _laserTimer = _laserDuration;
     }
 }

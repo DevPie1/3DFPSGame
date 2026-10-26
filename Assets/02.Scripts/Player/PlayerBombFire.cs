@@ -82,6 +82,9 @@ public class PlayerBombFire : MonoBehaviour
             return;
         }
 
+        Camera mainCamera = Camera.main;
+        if (mainCamera == null) return;
+
         _currentBombs--;
 
         float chargeRatio = Mathf.Clamp01(_chargeTime / _maxChargeTime);
@@ -90,8 +93,7 @@ public class PlayerBombFire : MonoBehaviour
 
         // 발사 위치에서 수류탄을 생성하고 시선 방향으로 던진다.
         Bomb bomb = LeanPool.Spawn(_bombPrefab, _firePoint.position, Quaternion.identity);
-        Rigidbody bombRigidbody = bomb.GetComponent<Rigidbody>();
-        bombRigidbody.AddForce(Camera.main.transform.forward * throwPower, ForceMode.Impulse);
+        bomb.Launch(mainCamera.transform.forward * throwPower, GetComponent<Collider>());
     }
 
     private void TryReload()

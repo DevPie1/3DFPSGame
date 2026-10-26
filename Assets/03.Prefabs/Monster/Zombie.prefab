@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4568489453481646802}
   - component: {fileID: 3802694153223348951}
   - component: {fileID: 909730551397498622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,6 +231,14 @@ MonoBehaviour:
   _moveSpeed: 5
   _maxHealth: 30
   _health: 30
+  _idleMode: 2
+  _patrolPoints: []
+  _arrivalDistance: 0.7
+  _roamRadius: 5
+  _waypointWaitTime: 1
+  _roamTravelTime: 5
+  _hitDuration: 0.3
+  _deathDelay: 0.5
 --- !u!114 &909730551397498622
 MonoBehaviour:
   m_ObjectHideFlags: 0

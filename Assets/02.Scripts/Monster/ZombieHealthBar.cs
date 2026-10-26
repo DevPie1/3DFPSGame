@@ -24,6 +24,33 @@ public class ZombieHealthBar : MonoBehaviour
         EnsureWorldSpaceCanvas();
     }
 
+    private void OnEnable()
+    {
+        if (_zombie == null)
+        {
+            return;
+        }
+
+        _zombie.OnHealthChanged += RefreshHealth;
+        RefreshHealth(_zombie.Health, _zombie.MaxHealth);
+    }
+
+    private void OnDisable()
+    {
+        if (_zombie != null)
+        {
+            _zombie.OnHealthChanged -= RefreshHealth;
+        }
+    }
+
+    private void RefreshHealth(float health, float maxHealth)
+    {
+        if (_slider != null)
+        {
+            _slider.value = maxHealth > 0f ? Mathf.Clamp01(health / maxHealth) : 0f;
+        }
+    }
+
     // 체력바가 화면 중앙에 고정되는 것을 막는다.
     // Screen Space Canvas는 위치를 월드 좌표로 바꿔도 화면 중앙에 남는다.
     private void EnsureWorldSpaceCanvas()
@@ -62,10 +89,6 @@ public class ZombieHealthBar : MonoBehaviour
         {
             return;
         }
-
-        _slider.value = _zombie.MaxHealth > 0f
-            ? Mathf.Clamp01(_zombie.Health / _zombie.MaxHealth)
-            : 0f;
 
         if (_mainCamera == null)
         {
