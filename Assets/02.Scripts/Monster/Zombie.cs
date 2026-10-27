@@ -69,6 +69,11 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
     public event Action<float, float> OnHealthChanged;
     public event Action<Zombie> OnDied;
     public event Action<Zombie> OnDespawned;
+    public event Action<ZombieState> OnStateChanged;
+    public event Action OnAttackPerformed;
+
+    public ZombieState State => _state;
+    public float AgentVelocity => _agent != null ? _agent.velocity.magnitude : 0f;
 
     internal float AttackInterval => _attackInterval;
     internal float WaypointWaitTime => _waypointWaitTime;
@@ -210,6 +215,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         _state = state;
         _currentState = _states[state];
         _currentState.Enter();
+        OnStateChanged?.Invoke(state);
     }
 
     internal void GoToDefaultState()
@@ -218,7 +224,8 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         {
             case ZombieIdleMode.Patrol:
                 ChangeState(_activePatrolPoints != null && _activePatrolPoints.Length > 0
-                    ? ZombieState.Patrol : ZombieState.Roam);
+                    ? ZombieState.Patrol
+                    : ZombieState.Roam);
                 break;
             case ZombieIdleMode.Roam:
                 ChangeState(ZombieState.Roam);
@@ -242,7 +249,10 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
     internal bool HasPlayer => _player != null;
     internal Vector3 PlayerPosition => _player != null ? _player.position : _startPosition;
-    internal bool IsPlayerInAttackRange => _player != null && Vector3.Distance(transform.position, _player.position) <= _attackRange;
+
+    internal bool IsPlayerInAttackRange =>
+        _player != null && Vector3.Distance(transform.position, _player.position) <= _attackRange;
+
     internal bool IsOutsideHomeRange => PlanarDistance(transform.position, _startPosition) > _combackDistance;
 
     internal bool MoveTowards(Vector3 destination)
@@ -316,6 +326,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         if (IsPlayerInAttackRange)
         {
             _playerDamageable?.TakeDamage(_attackDamage);
+            OnAttackPerformed?.Invoke();
         }
     }
 
