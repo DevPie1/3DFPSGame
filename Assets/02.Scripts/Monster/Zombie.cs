@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
+using UnityEngine.AI;
 
 // FSM(유한 상태 머신) : 유한개의 상태가 있고, 상태마다 행동을 다르게 함으로써 AI를 구현하는 유명한 방법
 // - "상태": 객체가 가질 수 있는 어떤 조건이나 상황
@@ -29,7 +30,8 @@ public enum ZombieIdleMode
     Roam
 }
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class Zombie : MonoBehaviour, IDamageable, IPoolable
 {
     [Header("스탯")][SerializeField] private float _detectDistance = 8; // 플레이어를 발견하는 거리
@@ -51,7 +53,6 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
     [SerializeField, Min(0f)] private float _hitDuration = 0.3f;
     [SerializeField, Min(0f)] private float _deathDelay = 0.5f;
 
-    private CharacterController _controller;
     private Vector3 _startPosition;
     private Transform _player;
     private IDamageable _playerDamageable;
@@ -78,10 +79,10 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
     internal Transform[] PatrolPoints => _activePatrolPoints;
 
     private ZombieState _state = ZombieState.Idle;
+    private NavMeshAgent _agent;
 
     private void Awake()
     {
-        _controller = GetComponent<CharacterController>();
         _states.Add(ZombieState.Idle, new ZombieIdleState(this));
         _states.Add(ZombieState.Patrol, new ZombiePatrolState(this));
         _states.Add(ZombieState.Roam, new ZombieRoamState(this));
@@ -90,6 +91,12 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         _states.Add(ZombieState.Attack, new ZombieAttackState(this));
         _states.Add(ZombieState.Hit, new ZombieHitState(this));
         _states.Add(ZombieState.Death, new ZombieDeathState(this));
+
+        _agent = GetComponent<NavMeshAgent>();
+        if (_agent == null)
+        {
+            Debug.LogError("[Zombie] NavMeshAgent가 없습니다.", this);
+        }
     }
 
     private void OnEnable()
@@ -123,10 +130,28 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
         _isSpawned = true;
         _health = _maxHealth;
-        _startPosition = transform.position;
         _activePatrolPoints = _patrolPoints;
         _activeIdleMode = _idleMode;
-        _controller.enabled = true;
+
+        EnableAgent();
+
+        // 생성 위치가 NavMesh 밖이면 가장 가까운 NavMesh 위로 올린다.
+        if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 5f, NavMesh.AllAreas))
+        {
+            _startPosition = hit.position;
+            transform.position = hit.position;
+
+            if (_agent != null)
+            {
+                _agent.Warp(hit.position);
+            }
+        }
+        else
+        {
+            _startPosition = transform.position;
+            Debug.LogWarning("[Zombie] 생성 위치 근처에 NavMesh가 없습니다.", this);
+        }
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         _player = player != null ? player.transform : null;
         _playerDamageable = player != null ? player.GetComponent<IDamageable>() : null;
@@ -152,7 +177,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         _isSpawned = false;
         _currentState?.Exit();
         _currentState = null;
-        _controller.enabled = false;
+        DisableAgent();
         _player = null;
         _playerDamageable = null;
         OnDespawned?.Invoke(this);
@@ -222,32 +247,68 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
     internal bool MoveTowards(Vector3 destination)
     {
-        Vector3 direction = destination - transform.position;
-        direction.y = 0f;
-        if (direction.sqrMagnitude <= _arrivalDistance * _arrivalDistance)
+        if (_agent == null || _agent.enabled == false)
         {
-            StandStill();
-            return true;
+            return false;
         }
 
-        direction.Normalize();
-        transform.forward = direction;
-        _controller.SimpleMove(direction * _moveSpeed);
-        return false;
+        if (_agent.isOnNavMesh == false && _agent.Warp(transform.position) == false)
+        {
+            return false;
+        }
+
+        // 목적지가 NavMesh 밖이면 가장 가까운 NavMesh 위의 점으로 보정한다.
+        if (NavMesh.SamplePosition(destination, out NavMeshHit destinationHit, 2f, NavMesh.AllAreas))
+        {
+            destination = destinationHit.position;
+        }
+
+        _agent.isStopped = false;
+        if (_agent.SetDestination(destination) == false)
+        {
+            return false;
+        }
+
+        if (_agent.pathPending)
+        {
+            return false;
+        }
+
+        float remainingDistance = _agent.remainingDistance;
+        if (float.IsInfinity(remainingDistance))
+        {
+            return false;
+        }
+
+        return remainingDistance <= _arrivalDistance + 0.05f;
     }
 
     internal void StandStill()
     {
-        if (_controller.enabled)
+        if (_agent == null || _agent.enabled == false || _agent.isOnNavMesh == false)
         {
-            _controller.SimpleMove(Vector3.zero);
+            return;
+        }
+
+        if (_agent.isStopped == false)
+        {
+            _agent.isStopped = true;
+            _agent.ResetPath();
         }
     }
 
     internal Vector3 ChooseRoamDestination()
     {
         Vector2 offset = UnityEngine.Random.insideUnitCircle * _roamRadius;
-        return _startPosition + new Vector3(offset.x, 0f, offset.y);
+        Vector3 candidate = _startPosition + new Vector3(offset.x, 0f, offset.y);
+
+        // 배회 목적지도 실제 NavMesh 위의 점으로 보정한다.
+        if (NavMesh.SamplePosition(candidate, out NavMeshHit hit, _roamRadius, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+
+        return _startPosition;
     }
 
     internal void AttackPlayer()
@@ -258,7 +319,38 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         }
     }
 
-    internal void DisableController() => _controller.enabled = false;
+    private void EnableAgent()
+    {
+        if (_agent == null)
+        {
+            return;
+        }
+
+        _agent.enabled = true;
+        _agent.speed = _moveSpeed;
+        _agent.stoppingDistance = _arrivalDistance;
+        _agent.acceleration = Mathf.Max(8f, _moveSpeed * 2f);
+        _agent.angularSpeed = 360f;
+        _agent.autoBraking = true;
+        _agent.updateRotation = true;
+        _agent.isStopped = false;
+    }
+
+    internal void DisableAgent()
+    {
+        if (_agent == null)
+        {
+            return;
+        }
+
+        if (_agent.enabled && _agent.isOnNavMesh)
+        {
+            _agent.isStopped = true;
+            _agent.ResetPath();
+        }
+
+        _agent.enabled = false;
+    }
 
     internal void ReturnToPool() => LeanPool.Despawn(gameObject);
 

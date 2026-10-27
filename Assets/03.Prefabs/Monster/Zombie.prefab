@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4568489453481646802}
   - component: {fileID: 3802694153223348951}
   - component: {fileID: 909730551397498622}
+  - component: {fileID: -4344494087643995301}
   m_Layer: 6
   m_Name: Zombie
   m_TagString: Untagged
@@ -186,8 +187,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!143 &4568489453481646802
-CharacterController:
+--- !u!136 &4568489453481646802
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -201,15 +202,13 @@ CharacterController:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
+  serializedVersion: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3802694153223348951
 MonoBehaviour:
@@ -223,8 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209f1c39128ddfe41b97d6a3d7ef4376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zombie
-  _detectDistance: 8
-  _combackDistance: 12
+  _detectDistance: 10
+  _combackDistance: 20
   _attackRange: 1.5
   _attackInterval: 1.2
   _attackDamage: 10
@@ -254,6 +253,28 @@ MonoBehaviour:
   _slider: {fileID: 7454367079251600525}
   _healthBarRoot: {fileID: 0}
   _heightOffset: 2.2
+--- !u!195 &-4344494087643995301
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529018861009984280}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0.7
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1790993008881422416
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +286,7 @@ GameObject:
   - component: {fileID: 8593620069816575365}
   - component: {fileID: 7175841120166215176}
   - component: {fileID: 2763574833011921000}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +361,7 @@ GameObject:
   - component: {fileID: 856211312400186738}
   - component: {fileID: 8903229248431636478}
   - component: {fileID: 557141109921661515}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +437,7 @@ GameObject:
   - component: {fileID: 4788783408981360774}
   - component: {fileID: 2534953878900267788}
   - component: {fileID: 3039501081582798226}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthBar_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7047068920513455891}
   - component: {fileID: 7454367079251600525}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8467909250844635537}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -182,7 +182,7 @@ internal sealed class ZombieDeathState : ZombieStateBase
     public override void Enter()
     {
         base.Enter();
-        Owner.DisableController();
+        Owner.DisableAgent();
     }
 
     public override void Tick(float deltaTime)
