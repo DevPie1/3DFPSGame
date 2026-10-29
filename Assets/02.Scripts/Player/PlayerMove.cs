@@ -23,11 +23,24 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _jumpBufferTime = 0.12f;
 
     [SerializeField] private CharacterController _characterController;
+    [SerializeField] private Animator _animator;
 
     private float _yVelocity;
     private int _jumpCount;
     private float _coyoteTimer;
     private float _jumpBufferTimer;
+
+    public bool IsSprinting { get; private set; }
+    public bool IsGrounded => _characterController != null && _characterController.isGrounded;
+    public float HorizontalSpeed
+    {
+        get
+        {
+            if (_characterController == null) return 0f;
+            Vector3 velocity = _characterController.velocity;
+            return new Vector2(velocity.x, velocity.z).magnitude;
+        }
+    }
 
     private void Awake()
     {
@@ -37,10 +50,26 @@ public class PlayerMove : MonoBehaviour
         {
             _stats = GetComponent<PlayerStats>();
         }
+
+        if (_animator == null)
+        {
+            _animator = GetComponentInChildren<Animator>();
+        }
     }
 
     private void Update()
     {
+        if (GameManager.Instance != null && GameManager.Instance.State != GameState.Playing)
+        {
+            IsSprinting = false;
+            if (_animator != null)
+            {
+                _animator.SetFloat("MoveMotion", 0f);
+            }
+
+            return;
+        }
+
         bool isGrounded = _characterController.isGrounded;
 
         UpdateJumpTimers(isGrounded);
@@ -127,6 +156,12 @@ public class PlayerMove : MonoBehaviour
         // 2. 키보드 입력에 따라 방향을 구한다.
         Vector3 direction = new Vector3(h, 0f, v);
         direction.Normalize(); // 대각선이어도 방향의 길이 1로 바꾸기 위해
+
+        if (_animator != null)
+        {
+            _animator.SetFloat("MoveMotion", direction.magnitude);
+        }
+
         // 캐릭터의 회전 방향을 기준으로 로컬 방향 벡터를 월드 방향 벡터로 변환한다.
         direction = transform.TransformDirection(direction);
 
@@ -140,6 +175,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         bool isSprinting = wantsSprint && (_stats == null || _stats.TrySprint(Time.deltaTime));
+        IsSprinting = isSprinting;
         float currentSpeed = isSprinting ? _sprintSpeed : _moveSpeed;
         Vector3 velocity = direction * currentSpeed;
         velocity.y = _yVelocity;

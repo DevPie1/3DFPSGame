@@ -35,7 +35,8 @@ public enum ZombieIdleMode
 public class Zombie : MonoBehaviour, IDamageable, IPoolable
 {
     [Header("스탯")][SerializeField] private float _detectDistance = 8; // 플레이어를 발견하는 거리
-    [SerializeField] private float _combackDistance = 15; // 처음 자리에서 이만큼 멀어지면 돌아가는 거리
+    [SerializeField] private float _combackDistance = 40; // 처음 자리에서 이만큼 멀어지면 돌아가는 거리
+    [SerializeField] private bool _keepChasingPlayer = true;
     [SerializeField] private float _attackRange = 1.5f; // 공격 범위
     [SerializeField] private float _attackInterval = 1.2f; // 공격 간격
     [SerializeField] private float _attackDamage = 10f; // 공격 한 번의 대미지
@@ -56,11 +57,18 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
     private Vector3 _startPosition;
     private Transform _player;
     private IDamageable _playerDamageable;
+    private Collider _playerCollider;
+    private Vector3 _lastDestination;
+    private float _nextPathTime;
+    private bool _hasDestination;
     private readonly Dictionary<ZombieState, ZombieStateBase> _states = new Dictionary<ZombieState, ZombieStateBase>();
     private ZombieStateBase _currentState;
     private bool _isSpawned;
     private Transform[] _activePatrolPoints;
     private ZombieIdleMode _activeIdleMode;
+    [SerializeField, HideInInspector] private ZombieSpawner _spawner;
+
+    internal ZombieSpawner Spawner { get => _spawner; set => _spawner = value; }
 
     public float MaxHealth => _maxHealth;
     public float Health => _health;
@@ -74,6 +82,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
     public ZombieState State => _state;
     public float AgentVelocity => _agent != null ? _agent.velocity.magnitude : 0f;
+    internal bool IsJumping => _jump != null && _jump.IsJumping;
 
     internal float AttackInterval => _attackInterval;
     internal float WaypointWaitTime => _waypointWaitTime;
@@ -82,25 +91,48 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
     internal float DeathDelay => _deathDelay;
     internal Vector3 HomePosition => _startPosition;
     internal Transform[] PatrolPoints => _activePatrolPoints;
+    internal Vector3 FeetPosition => transform.position - Vector3.up * _agent.baseOffset;
+    internal NavMeshQueryFilter NavigationFilter => new NavMeshQueryFilter
+    {
+        agentTypeID = _agent.agentTypeID,
+        areaMask = _agent.areaMask
+    };
 
     private ZombieState _state = ZombieState.Idle;
     private NavMeshAgent _agent;
+    private ZombieJump _jump;
 
     private void Awake()
     {
-        _states.Add(ZombieState.Idle, new ZombieIdleState(this));
-        _states.Add(ZombieState.Patrol, new ZombiePatrolState(this));
-        _states.Add(ZombieState.Roam, new ZombieRoamState(this));
-        _states.Add(ZombieState.Trace, new ZombieTraceState(this));
-        _states.Add(ZombieState.Comeback, new ZombieComebackState(this));
-        _states.Add(ZombieState.Attack, new ZombieAttackState(this));
-        _states.Add(ZombieState.Hit, new ZombieHitState(this));
-        _states.Add(ZombieState.Death, new ZombieDeathState(this));
+        EnsureInitialized();
+    }
+
+    private void EnsureInitialized()
+    {
+        // Play 중 스크립트를 다시 컴파일하면 Dictionary는 초기화되지만 Awake는 다시 호출되지 않는다.
+        if (_states.Count == 0)
+        {
+            _states.Add(ZombieState.Idle, new ZombieIdleState(this));
+            _states.Add(ZombieState.Patrol, new ZombiePatrolState(this));
+            _states.Add(ZombieState.Roam, new ZombieRoamState(this));
+            _states.Add(ZombieState.Trace, new ZombieTraceState(this));
+            _states.Add(ZombieState.Comeback, new ZombieComebackState(this));
+            _states.Add(ZombieState.Attack, new ZombieAttackState(this));
+            _states.Add(ZombieState.Hit, new ZombieHitState(this));
+            _states.Add(ZombieState.Death, new ZombieDeathState(this));
+        }
 
         _agent = GetComponent<NavMeshAgent>();
         if (_agent == null)
         {
             Debug.LogError("[Zombie] NavMeshAgent가 없습니다.", this);
+        }
+
+        // 프리팹에 점프 컴포넌트가 없어도 동작하도록 보장한다.
+        _jump = GetComponent<ZombieJump>();
+        if (_jump == null)
+        {
+            _jump = gameObject.AddComponent<ZombieJump>();
         }
     }
 
@@ -114,9 +146,11 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         // 사망 후 풀 반환 타이머는 게임오버 상태에서도 진행한다.
         if (!_isSpawned || (!IsDead && GameManager.Instance != null && GameManager.Instance.State != GameState.Playing))
         {
+            StandStill();
             return;
         }
 
+        if (IsJumping && !IsDead) return;
         _currentState?.Tick(Time.deltaTime);
     }
 
@@ -128,6 +162,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
     private void InitializeLife()
     {
+        EnsureInitialized();
         if (_isSpawned)
         {
             return;
@@ -138,28 +173,26 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         _activePatrolPoints = _patrolPoints;
         _activeIdleMode = _idleMode;
 
-        EnableAgent();
-
         // 생성 위치가 NavMesh 밖이면 가장 가까운 NavMesh 위로 올린다.
-        if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 5f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(FeetPosition, out NavMeshHit hit, 5f, NavigationFilter))
         {
             _startPosition = hit.position;
-            transform.position = hit.position;
-
-            if (_agent != null)
-            {
-                _agent.Warp(hit.position);
-            }
+            transform.position = hit.position + Vector3.up * _agent.baseOffset;
         }
         else
         {
-            _startPosition = transform.position;
+            _startPosition = FeetPosition;
             Debug.LogWarning("[Zombie] 생성 위치 근처에 NavMesh가 없습니다.", this);
         }
 
+        EnableAgent();
+        if (_agent.isOnNavMesh) _agent.Warp(transform.position);
+        _hasDestination = false;
+        _nextPathTime = 0f;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         _player = player != null ? player.transform : null;
         _playerDamageable = player != null ? player.GetComponent<IDamageable>() : null;
+        _playerCollider = player != null ? player.GetComponent<Collider>() : null;
         GoToDefaultState();
         OnHealthChanged?.Invoke(_health, _maxHealth);
     }
@@ -185,6 +218,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         DisableAgent();
         _player = null;
         _playerDamageable = null;
+        _playerCollider = null;
         OnDespawned?.Invoke(this);
     }
 
@@ -249,33 +283,55 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
     internal bool HasPlayer => _player != null;
     internal Vector3 PlayerPosition => _player != null ? _player.position : _startPosition;
+    internal Vector3 PlayerFeetPosition => _playerCollider != null
+        ? new Vector3(_player.position.x, _playerCollider.bounds.min.y, _player.position.z)
+        : PlayerPosition;
+
+    internal bool TryGetPlayerNavMeshPosition(out Vector3 position)
+    {
+        // 몸 중심으로 샘플링하면 위/아래층이 뒤바뀔 수 있으므로 발 높이를 사용한다.
+        Vector3 feet = PlayerFeetPosition;
+        if (HasPlayer && NavMesh.SamplePosition(feet, out NavMeshHit hit, 1.2f, NavigationFilter)
+            && Mathf.Abs(hit.position.y - feet.y) <= 0.5f)
+        {
+            position = hit.position;
+            return true;
+        }
+
+        // 플레이어가 공중에 있는 동안에는 마지막 지상 목적지를 유지한다.
+        position = default;
+        return false;
+    }
 
     internal bool IsPlayerInAttackRange =>
-        _player != null && Vector3.Distance(transform.position, _player.position) <= _attackRange;
+        _player != null
+        && !IsJumping && _agent.isActiveAndEnabled && _agent.isOnNavMesh && !_agent.isOnOffMeshLink
+        && Mathf.Abs(PlayerFeetPosition.y - FeetPosition.y) < 0.6f
+        && Vector3.Distance(transform.position, _player.position) <= _attackRange;
 
-    internal bool IsOutsideHomeRange => PlanarDistance(transform.position, _startPosition) > _combackDistance;
+    internal bool IsOutsideHomeRange => !_keepChasingPlayer
+        && PlanarDistance(transform.position, _startPosition) > _combackDistance;
 
     internal bool MoveTowards(Vector3 destination)
     {
-        if (_agent == null || _agent.enabled == false)
+        if (IsJumping || _agent == null || _agent.enabled == false)
         {
             return false;
         }
 
-        if (_agent.isOnNavMesh == false && _agent.Warp(transform.position) == false)
-        {
-            return false;
-        }
-
-        // 목적지가 NavMesh 밖이면 가장 가까운 NavMesh 위의 점으로 보정한다.
-        if (NavMesh.SamplePosition(destination, out NavMeshHit destinationHit, 2f, NavMesh.AllAreas))
-        {
-            destination = destinationHit.position;
-        }
+        if (!_agent.isOnNavMesh || _agent.isOnOffMeshLink) return false;
+        if (!NavMesh.SamplePosition(destination, out NavMeshHit destinationHit, 1.2f, NavigationFilter)) return false;
+        destination = destinationHit.position;
 
         _agent.isStopped = false;
-        if (_agent.SetDestination(destination) == false)
+        // 매 프레임 새 경로를 요청해 pathPending 상태에 머물지 않게 한다.
+        if (Time.time >= _nextPathTime && (!_hasDestination || !_agent.hasPath
+            || (destination - _lastDestination).sqrMagnitude > 0.0625f))
         {
+            _nextPathTime = Time.time + 0.2f;
+            if (!_agent.SetDestination(destination)) return false;
+            _lastDestination = destination;
+            _hasDestination = true;
             return false;
         }
 
@@ -290,12 +346,14 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
             return false;
         }
 
-        return remainingDistance <= _arrivalDistance + 0.05f;
+        return _agent.pathStatus == NavMeshPathStatus.PathComplete
+            && Vector3.Distance(FeetPosition, destination) <= _arrivalDistance + 0.1f
+            && remainingDistance <= _arrivalDistance + 0.05f;
     }
 
     internal void StandStill()
     {
-        if (_agent == null || _agent.enabled == false || _agent.isOnNavMesh == false)
+        if (IsJumping || _agent == null || _agent.enabled == false || _agent.isOnNavMesh == false)
         {
             return;
         }
@@ -303,8 +361,14 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         if (_agent.isStopped == false)
         {
             _agent.isStopped = true;
-            _agent.ResetPath();
+            // ResetPath는 링크 위에서 즉시 반대편으로 이동시키므로 여기서는 정지만 한다.
         }
+    }
+
+    internal void RefreshPathAfterJump()
+    {
+        _hasDestination = false;
+        _nextPathTime = 0f;
     }
 
     internal Vector3 ChooseRoamDestination()
@@ -313,7 +377,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         Vector3 candidate = _startPosition + new Vector3(offset.x, 0f, offset.y);
 
         // 배회 목적지도 실제 NavMesh 위의 점으로 보정한다.
-        if (NavMesh.SamplePosition(candidate, out NavMeshHit hit, _roamRadius, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(candidate, out NavMeshHit hit, _roamRadius, NavigationFilter))
         {
             return hit.position;
         }
@@ -344,7 +408,9 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         _agent.angularSpeed = 360f;
         _agent.autoBraking = true;
         _agent.updateRotation = true;
-        _agent.isStopped = false;
+        _agent.updatePosition = true;
+        _agent.autoTraverseOffMeshLink = false;
+        if (_agent.isOnNavMesh) _agent.isStopped = false;
     }
 
     internal void DisableAgent()
@@ -354,13 +420,9 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
             return;
         }
 
-        if (_agent.enabled && _agent.isOnNavMesh)
-        {
-            _agent.isStopped = true;
-            _agent.ResetPath();
-        }
-
         _agent.enabled = false;
+        _jump?.CancelJump();
+        _hasDestination = false;
     }
 
     internal void ReturnToPool() => LeanPool.Despawn(gameObject);

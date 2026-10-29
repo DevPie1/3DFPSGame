@@ -1,0 +1,51 @@
+{
+  "comparisons": [
+    {
+      "state": "Idle",
+      "maximumAngle": 0.0,
+      "maximumDistance": 0.0
+    },
+    {
+      "state": "Walk",
+      "maximumAngle": 0.0,
+      "maximumDistance": 0.0
+    },
+    {
+      "state": "Attack",
+      "maximumAngle": 0.0,
+      "maximumDistance": 0.0
+    },
+    {
+      "state": "Hit",
+      "maximumAngle": 0.0,
+      "maximumDistance": 0.0
+    },
+    {
+      "state": "Death",
+      "maximumAngle": 0.0,
+      "maximumDistance": 0.0
+    }
+  ],
+  "transitions": [
+    {
+      "trigger": "Speed 5",
+      "baseCorrect": true,
+      "lowerCorrect": true
+    },
+    {
+      "trigger": "Attack",
+      "baseCorrect": true,
+      "lowerCorrect": true
+    },
+    {
+      "trigger": "Hit",
+      "baseCorrect": true,
+      "lowerCorrect": true
+    },
+    {
+      "trigger": "Dead",
+      "baseCorrect": true,
+      "lowerCorrect": true
+    }
+  ]
+}

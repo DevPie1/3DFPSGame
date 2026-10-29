@@ -1,0 +1,4314 @@
+[
+  {
+    "phase": 0.0,
+    "entries": [
+      {
+        "name": "Current",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 41.0766678,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.155842125,
+            "rootRelativeDistance": 0.276063
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 14.1407633,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.112195432,
+            "rootRelativeDistance": 0.245894134
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 4.797966,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0936843157,
+            "rootRelativeDistance": 0.160939708
+          },
+          {
+            "bone": "Head",
+            "localAngle": 3.26988721,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.576490641,
+            "rootRelativeDistance": 0.1824948
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 94.5653,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.398463368,
+            "rootRelativeDistance": 0.0855115
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 68.01117,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.397982121,
+            "rootRelativeDistance": 0.117399417
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.140028417,
+            "rootRelativeDistance": 0.265965343
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.318580031,
+            "rootRelativeDistance": 0.465509
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7296635,
+            "rootRelativeDistance": 0.7576196
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1400562,
+            "rootRelativeDistance": 0.273666829
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.360175729,
+            "rootRelativeDistance": 0.512544632
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7483996,
+            "rootRelativeDistance": 0.816388
+          }
+        ]
+      },
+      {
+        "name": "No foot IK mask",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 41.0766678,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.155842125,
+            "rootRelativeDistance": 0.276063
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 14.1407633,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.112195432,
+            "rootRelativeDistance": 0.245894134
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 4.797966,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0936843157,
+            "rootRelativeDistance": 0.160939708
+          },
+          {
+            "bone": "Head",
+            "localAngle": 3.26988721,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.576490641,
+            "rootRelativeDistance": 0.1824948
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 94.5653,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.398463368,
+            "rootRelativeDistance": 0.0855115
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 68.01117,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.397982121,
+            "rootRelativeDistance": 0.117399506
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.140028417,
+            "rootRelativeDistance": 0.265965343
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.318580031,
+            "rootRelativeDistance": 0.465509
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7296635,
+            "rootRelativeDistance": 0.7576196
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1400562,
+            "rootRelativeDistance": 0.2736668
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.360175729,
+            "rootRelativeDistance": 0.512544632
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7483996,
+            "rootRelativeDistance": 0.816388
+          }
+        ]
+      },
+      {
+        "name": "Root enabled",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 15.1549129,
+            "upperBaselineAngle": 27.211462,
+            "rootRelativeY": -0.11026454,
+            "rootRelativeDistance": 0.0574394166
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 14.1407633,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.0701372,
+            "rootRelativeDistance": 0.06338036
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 4.797966,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.06680179,
+            "rootRelativeDistance": 0.0635957643
+          },
+          {
+            "bone": "Head",
+            "localAngle": 3.26988721,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.473173618,
+            "rootRelativeDistance": 0.107458472
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 94.5653,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3638234,
+            "rootRelativeDistance": 0.06811297
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 68.01117,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.29865098,
+            "rootRelativeDistance": 0.0606853254
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.103587806,
+            "rootRelativeDistance": 0.0466656573
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.402218223,
+            "rootRelativeDistance": 0.0568059422
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8243835,
+            "rootRelativeDistance": 0.1610867
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.127278864,
+            "rootRelativeDistance": 0.0513845533
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4700225,
+            "rootRelativeDistance": 0.0478311852
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9069162,
+            "rootRelativeDistance": 0.151795581
+          }
+        ]
+      },
+      {
+        "name": "Root + Body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 3.48519659,
+            "upperBaselineAngle": 37.7397,
+            "rootRelativeY": -0.09954858,
+            "rootRelativeDistance": 0.03305931
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 14.1407633,
+            "rootRelativeY": -0.06341797,
+            "rootRelativeDistance": 0.03399313
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 4.797966,
+            "rootRelativeY": 0.08255696,
+            "rootRelativeDistance": 0.0379921757
+          },
+          {
+            "bone": "Head",
+            "localAngle": 3.26988721,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.484122038,
+            "rootRelativeDistance": 0.08352495
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 94.5653,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3753878,
+            "rootRelativeDistance": 0.0361719951
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 68.01117,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3132198,
+            "rootRelativeDistance": 0.03302135
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.09974253,
+            "rootRelativeDistance": 0.0305885375
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.434367657,
+            "rootRelativeDistance": 0.008877979
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8367319,
+            "rootRelativeDistance": 0.0273521636
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.12740463,
+            "rootRelativeDistance": 0.0308503583
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.500545,
+            "rootRelativeDistance": 0.0107592782
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.93036747,
+            "rootRelativeDistance": 0.0266177524
+          }
+        ]
+      },
+      {
+        "name": "Source reference",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 41.0766678,
+            "rootRelativeY": -0.0813882351,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 14.1407633,
+            "rootRelativeY": -0.0467524529,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 4.797966,
+            "rootRelativeY": 0.0882267952,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Head",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 3.26988721,
+            "rootRelativeY": 0.449861526,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 94.5653,
+            "rootRelativeY": 0.3938892,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 68.01117,
+            "rootRelativeY": 0.332232833,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.0839980841,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.42770344,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.821247935,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.112147152,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.491904855,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9163618,
+            "rootRelativeDistance": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Filtered body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 3.48519659,
+            "upperBaselineAngle": 37.7397,
+            "rootRelativeY": -0.09954858,
+            "rootRelativeDistance": 0.03305928
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 14.1407633,
+            "rootRelativeY": -0.06341797,
+            "rootRelativeDistance": 0.0339930877
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 4.797966,
+            "rootRelativeY": 0.08255696,
+            "rootRelativeDistance": 0.0379921421
+          },
+          {
+            "bone": "Head",
+            "localAngle": 3.26988721,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.484122038,
+            "rootRelativeDistance": 0.08352494
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 94.5653,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.375387669,
+            "rootRelativeDistance": 0.03617211
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 68.01117,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3132198,
+            "rootRelativeDistance": 0.03302144
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.09974253,
+            "rootRelativeDistance": 0.03058852
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.434367537,
+            "rootRelativeDistance": 0.008877868
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8367318,
+            "rootRelativeDistance": 0.0273520965
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.127404571,
+            "rootRelativeDistance": 0.0308502559
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5005449,
+            "rootRelativeDistance": 0.0107591422
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.930367351,
+            "rootRelativeDistance": 0.0266180132
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "phase": 0.125,
+    "entries": [
+      {
+        "name": "Current",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 36.7659225,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.23167783,
+            "rootRelativeDistance": 0.2221346
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 18.6627235,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.18795675,
+            "rootRelativeDistance": 0.196974844
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 4.376413,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.009179473,
+            "rootRelativeDistance": 0.137826532
+          },
+          {
+            "bone": "Head",
+            "localAngle": 25.30294,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.490350246,
+            "rootRelativeDistance": 0.108323164
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 87.52153,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.313358784,
+            "rootRelativeDistance": 0.16172044
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 87.49315,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.31335938,
+            "rootRelativeDistance": 0.126296625
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.219735146,
+            "rootRelativeDistance": 0.21530287
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5057206,
+            "rootRelativeDistance": 0.392805845
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8690429,
+            "rootRelativeDistance": 0.6545492
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.219734371,
+            "rootRelativeDistance": 0.204077467
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5470066,
+            "rootRelativeDistance": 0.4216361
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.97602874,
+            "rootRelativeDistance": 0.6919368
+          }
+        ]
+      },
+      {
+        "name": "No foot IK mask",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 36.7659225,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.23167783,
+            "rootRelativeDistance": 0.2221346
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 18.6627235,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.18795675,
+            "rootRelativeDistance": 0.196974844
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 4.376413,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.009179473,
+            "rootRelativeDistance": 0.137826532
+          },
+          {
+            "bone": "Head",
+            "localAngle": 25.30294,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.490350246,
+            "rootRelativeDistance": 0.108323164
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 87.52153,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.313358784,
+            "rootRelativeDistance": 0.16172044
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 87.49315,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.31335938,
+            "rootRelativeDistance": 0.126296625
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.219735146,
+            "rootRelativeDistance": 0.21530287
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5057206,
+            "rootRelativeDistance": 0.392805845
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8690429,
+            "rootRelativeDistance": 0.6545492
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.219734371,
+            "rootRelativeDistance": 0.204077467
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5470066,
+            "rootRelativeDistance": 0.4216361
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.97602874,
+            "rootRelativeDistance": 0.6919368
+          }
+        ]
+      },
+      {
+        "name": "Root enabled",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 23.1970978,
+            "upperBaselineAngle": 15.2879667,
+            "rootRelativeY": -0.139672816,
+            "rootRelativeDistance": 0.07854645
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 18.6627235,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.0976600051,
+            "rootRelativeDistance": 0.0899179652
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 4.376413,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.06923711,
+            "rootRelativeDistance": 0.0983874947
+          },
+          {
+            "bone": "Head",
+            "localAngle": 25.30294,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.521308541,
+            "rootRelativeDistance": 0.128726289
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 87.52153,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3931576,
+            "rootRelativeDistance": 0.08315526
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 87.49315,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3241769,
+            "rootRelativeDistance": 0.07759606
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.121403515,
+            "rootRelativeDistance": 0.07203566
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.445252538,
+            "rootRelativeDistance": 0.0846291
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.848003745,
+            "rootRelativeDistance": 0.2600236
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.152176976,
+            "rootRelativeDistance": 0.06520284
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.523313,
+            "rootRelativeDistance": 0.08952095
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9580975,
+            "rootRelativeDistance": 0.257629
+          }
+        ]
+      },
+      {
+        "name": "Root + Body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 4.046654,
+            "upperBaselineAngle": 33.5547638,
+            "rootRelativeY": -0.122939885,
+            "rootRelativeDistance": 0.0360915177
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 18.6627235,
+            "rootRelativeY": -0.08697075,
+            "rootRelativeDistance": 0.03697008
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 4.376413,
+            "rootRelativeY": 0.0767326355,
+            "rootRelativeDistance": 0.0412040651
+          },
+          {
+            "bone": "Head",
+            "localAngle": 25.30294,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.5371797,
+            "rootRelativeDistance": 0.09762257
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 87.52153,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.401118517,
+            "rootRelativeDistance": 0.04548566
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 87.49315,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3400594,
+            "rootRelativeDistance": 0.0299122967
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.115402818,
+            "rootRelativeDistance": 0.0324481539
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.483830452,
+            "rootRelativeDistance": 0.0165971462
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.915116549,
+            "rootRelativeDistance": 0.0324743278
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.156335,
+            "rootRelativeDistance": 0.0344779529
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5489431,
+            "rootRelativeDistance": 0.0191793516
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9438148,
+            "rootRelativeDistance": 0.03208747
+          }
+        ]
+      },
+      {
+        "name": "Source reference",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 36.7659225,
+            "rootRelativeY": -0.103053272,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 18.6627235,
+            "rootRelativeY": -0.0685463548,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 4.376413,
+            "rootRelativeY": 0.0855476856,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Head",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 25.30294,
+            "rootRelativeY": 0.5108726,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 87.52153,
+            "rootRelativeY": 0.4278388,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 87.49315,
+            "rootRelativeY": 0.3574977,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.09662193,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4673251,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8979114,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.140160263,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5320542,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.915838242,
+            "rootRelativeDistance": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Filtered body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 14.5365038,
+            "upperBaselineAngle": 22.4659634,
+            "rootRelativeY": -0.13283813,
+            "rootRelativeDistance": 0.061755307
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 5.73843336,
+            "upperBaselineAngle": 13.5448456,
+            "rootRelativeY": -0.09275401,
+            "rootRelativeDistance": 0.06794612
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 10.8209639,
+            "upperBaselineAngle": 7.150773,
+            "rootRelativeY": 0.08621919,
+            "rootRelativeDistance": 0.08808312
+          },
+          {
+            "bone": "Head",
+            "localAngle": 25.30294,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.531009436,
+            "rootRelativeDistance": 0.101524711
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 87.52153,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.4063704,
+            "rootRelativeDistance": 0.05883591
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 87.49315,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3373897,
+            "rootRelativeDistance": 0.052804675
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.121883392,
+            "rootRelativeDistance": 0.0584792644
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4738286,
+            "rootRelativeDistance": 0.04377888
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.897147834,
+            "rootRelativeDistance": 0.153596729
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.152655959,
+            "rootRelativeDistance": 0.0505930781
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.538131,
+            "rootRelativeDistance": 0.0488692932
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.961155653,
+            "rootRelativeDistance": 0.155928954
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "phase": 0.25,
+    "entries": [
+      {
+        "name": "Current",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 37.6242867,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.158202291,
+            "rootRelativeDistance": 0.150915727
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 23.22477,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.114547908,
+            "rootRelativeDistance": 0.124880113
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 10.0186052,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.09112847,
+            "rootRelativeDistance": 0.08726833
+          },
+          {
+            "bone": "Head",
+            "localAngle": 43.2869339,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.574741364,
+            "rootRelativeDistance": 0.08432572
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 81.5546341,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395414352,
+            "rootRelativeDistance": 0.124402761
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.94741,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395881772,
+            "rootRelativeDistance": 0.112398379
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.142549932,
+            "rootRelativeDistance": 0.154867768
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.491168916,
+            "rootRelativeDistance": 0.3976431
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8660289,
+            "rootRelativeDistance": 0.67133373
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.142514825,
+            "rootRelativeDistance": 0.142152876
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.46909982,
+            "rootRelativeDistance": 0.379261076
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8991536,
+            "rootRelativeDistance": 0.6333546
+          }
+        ]
+      },
+      {
+        "name": "No foot IK mask",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 37.6242867,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.158202291,
+            "rootRelativeDistance": 0.150915727
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 23.22477,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.114547908,
+            "rootRelativeDistance": 0.124880113
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 10.0186052,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.09112847,
+            "rootRelativeDistance": 0.08726833
+          },
+          {
+            "bone": "Head",
+            "localAngle": 43.2869339,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.574741364,
+            "rootRelativeDistance": 0.08432572
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 81.5546341,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395414352,
+            "rootRelativeDistance": 0.124402761
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.94741,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395881772,
+            "rootRelativeDistance": 0.112398379
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.142549932,
+            "rootRelativeDistance": 0.154867768
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.491168916,
+            "rootRelativeDistance": 0.3976431
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8660289,
+            "rootRelativeDistance": 0.6713338
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.142514825,
+            "rootRelativeDistance": 0.142152831
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.46909982,
+            "rootRelativeDistance": 0.379261076
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8991536,
+            "rootRelativeDistance": 0.6333546
+          }
+        ]
+      },
+      {
+        "name": "Root enabled",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 30.59607,
+            "upperBaselineAngle": 9.151974,
+            "rootRelativeY": -0.163911581,
+            "rootRelativeDistance": 0.0919666439
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 23.22477,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.120573759,
+            "rootRelativeDistance": 0.109601967
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 10.0186052,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.07399976,
+            "rootRelativeDistance": 0.126584724
+          },
+          {
+            "bone": "Head",
+            "localAngle": 43.2869339,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.547850251,
+            "rootRelativeDistance": 0.142212927
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 81.5546341,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3972553,
+            "rootRelativeDistance": 0.103679255
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.94741,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.349964142,
+            "rootRelativeDistance": 0.08982876
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1407777,
+            "rootRelativeDistance": 0.0836838856
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.497864842,
+            "rootRelativeDistance": 0.127981246
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.892451048,
+            "rootRelativeDistance": 0.353917629
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.163043976,
+            "rootRelativeDistance": 0.0834835
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.515156865,
+            "rootRelativeDistance": 0.116929121
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.952021956,
+            "rootRelativeDistance": 0.3261766
+          }
+        ]
+      },
+      {
+        "name": "Root + Body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 4.786039,
+            "upperBaselineAngle": 34.3260651,
+            "rootRelativeY": -0.14277941,
+            "rootRelativeDistance": 0.0331435
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 23.22477,
+            "rootRelativeY": -0.105285704,
+            "rootRelativeDistance": 0.0340415575
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 10.0186052,
+            "rootRelativeY": 0.07963514,
+            "rootRelativeDistance": 0.038266696
+          },
+          {
+            "bone": "Head",
+            "localAngle": 43.2869339,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.561941147,
+            "rootRelativeDistance": 0.105278522
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 81.5546341,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.4019587,
+            "rootRelativeDistance": 0.05385907
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.94741,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.363868,
+            "rootRelativeDistance": 0.03292592
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.132054269,
+            "rootRelativeDistance": 0.02829614
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5096276,
+            "rootRelativeDistance": 0.0223135967
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.943448365,
+            "rootRelativeDistance": 0.0343162455
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.172918558,
+            "rootRelativeDistance": 0.0335047878
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5653694,
+            "rootRelativeDistance": 0.0205628052
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9575537,
+            "rootRelativeDistance": 0.0232404
+          }
+        ]
+      },
+      {
+        "name": "Source reference",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 37.6242867,
+            "rootRelativeY": -0.125162482,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 23.22477,
+            "rootRelativeY": -0.08873832,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 10.0186052,
+            "rootRelativeY": 0.08988464,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Head",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 43.2869339,
+            "rootRelativeY": 0.5385027,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 81.5546341,
+            "rootRelativeY": 0.440609217,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 99.94741,
+            "rootRelativeY": 0.387600422,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.114144206,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4876325,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.919346631,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1590662,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5511653,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9348149,
+            "rootRelativeDistance": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Filtered body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 20.6722183,
+            "upperBaselineAngle": 17.5914726,
+            "rootRelativeY": -0.15417701,
+            "rootRelativeDistance": 0.07124505
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 10.100173,
+            "upperBaselineAngle": 14.0810976,
+            "rootRelativeY": -0.111845195,
+            "rootRelativeDistance": 0.08156253
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 14.0288992,
+            "upperBaselineAngle": 4.834703,
+            "rootRelativeY": 0.0882012844,
+            "rootRelativeDistance": 0.106040336
+          },
+          {
+            "bone": "Head",
+            "localAngle": 43.2869339,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.56041,
+            "rootRelativeDistance": 0.115502171
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 81.5546341,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.410879374,
+            "rootRelativeDistance": 0.07935097
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.94741,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.363210678,
+            "rootRelativeDistance": 0.05918366
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.141216159,
+            "rootRelativeDistance": 0.06191757
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.522077441,
+            "rootRelativeDistance": 0.09000617
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.94623524,
+            "rootRelativeDistance": 0.2344194
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.162069023,
+            "rootRelativeDistance": 0.0657701343
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5389683,
+            "rootRelativeDistance": 0.0639453
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9678785,
+            "rootRelativeDistance": 0.193155855
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "phase": 0.375,
+    "entries": [
+      {
+        "name": "Current",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 29.7924862,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.234188735,
+            "rootRelativeDistance": 0.170062765
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.7686768,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.190466762,
+            "rootRelativeDistance": 0.151864991
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 8.761043,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0067306757,
+            "rootRelativeDistance": 0.131588057
+          },
+          {
+            "bone": "Head",
+            "localAngle": 36.9820175,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.487917185,
+            "rootRelativeDistance": 0.07491394
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 76.24217,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3109262,
+            "rootRelativeDistance": 0.15709731
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.98807,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.310934544,
+            "rootRelativeDistance": 0.163850427
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.222201645,
+            "rootRelativeDistance": 0.1795643
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.6065974,
+            "rootRelativeDistance": 0.363071173
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -1.03882837,
+            "rootRelativeDistance": 0.5651422
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.222206116,
+            "rootRelativeDistance": 0.138788685
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5497321,
+            "rootRelativeDistance": 0.2943207
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.927291453,
+            "rootRelativeDistance": 0.506742
+          }
+        ]
+      },
+      {
+        "name": "No foot IK mask",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 29.7924862,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.234188735,
+            "rootRelativeDistance": 0.170062765
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.7686768,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.190466762,
+            "rootRelativeDistance": 0.151864991
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 8.761043,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0067306757,
+            "rootRelativeDistance": 0.131588057
+          },
+          {
+            "bone": "Head",
+            "localAngle": 36.9820175,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.487917185,
+            "rootRelativeDistance": 0.07491394
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 76.24217,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3109262,
+            "rootRelativeDistance": 0.157097369
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.98807,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.310934544,
+            "rootRelativeDistance": 0.163850427
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.222201645,
+            "rootRelativeDistance": 0.1795643
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.6065974,
+            "rootRelativeDistance": 0.363071173
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -1.03882837,
+            "rootRelativeDistance": 0.5651422
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.222206116,
+            "rootRelativeDistance": 0.138788626
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5497321,
+            "rootRelativeDistance": 0.2943207
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.927291453,
+            "rootRelativeDistance": 0.506742
+          }
+        ]
+      },
+      {
+        "name": "Root enabled",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 26.33611,
+            "upperBaselineAngle": 4.534726,
+            "rootRelativeY": -0.159933925,
+            "rootRelativeDistance": 0.07511865
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.7686768,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.116403043,
+            "rootRelativeDistance": 0.08968653
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 8.761043,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0727154,
+            "rootRelativeDistance": 0.090565
+          },
+          {
+            "bone": "Head",
+            "localAngle": 36.9820175,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.548496246,
+            "rootRelativeDistance": 0.11991401
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 76.24217,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.384247661,
+            "rootRelativeDistance": 0.11675743
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.98807,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.365089059,
+            "rootRelativeDistance": 0.08515444
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.146472692,
+            "rootRelativeDistance": 0.055979643
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5312012,
+            "rootRelativeDistance": 0.122131988
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9664153,
+            "rootRelativeDistance": 0.297471225
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.155030727,
+            "rootRelativeDistance": 0.08233842
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.497471452,
+            "rootRelativeDistance": 0.09463613
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.887911,
+            "rootRelativeDistance": 0.2734708
+          }
+        ]
+      },
+      {
+        "name": "Root + Body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 3.79961967,
+            "upperBaselineAngle": 27.0793266,
+            "rootRelativeY": -0.147055387,
+            "rootRelativeDistance": 0.0264221467
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 21.7686768,
+            "rootRelativeY": -0.107984185,
+            "rootRelativeDistance": 0.0271155015
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 8.761043,
+            "rootRelativeY": 0.080860734,
+            "rootRelativeDistance": 0.0294446666
+          },
+          {
+            "bone": "Head",
+            "localAngle": 36.9820175,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.560269356,
+            "rootRelativeDistance": 0.08426508
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 76.24217,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.392163038,
+            "rootRelativeDistance": 0.06576633
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.98807,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.376467943,
+            "rootRelativeDistance": 0.05348117
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.140536129,
+            "rootRelativeDistance": 0.0216377266
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5055548,
+            "rootRelativeDistance": 0.016210882
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.922443151,
+            "rootRelativeDistance": 0.0208623614
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.168678164,
+            "rootRelativeDistance": 0.02836815
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.557643235,
+            "rootRelativeDistance": 0.019757444
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9884514,
+            "rootRelativeDistance": 0.0169469453
+          }
+        ]
+      },
+      {
+        "name": "Source reference",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 29.7924862,
+            "rootRelativeY": -0.138030112,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 21.7686768,
+            "rootRelativeY": -0.09947872,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 8.761043,
+            "rootRelativeY": 0.08620691,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Head",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 36.9820175,
+            "rootRelativeY": 0.533989668,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 76.24217,
+            "rootRelativeY": 0.444667578,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 99.98807,
+            "rootRelativeY": 0.421850443,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.130692124,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.491387367,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9045437,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.162272155,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.552309155,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.982747436,
+            "rootRelativeDistance": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Filtered body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 19.1552448,
+            "upperBaselineAngle": 12.7322989,
+            "rootRelativeY": -0.154652953,
+            "rootRelativeDistance": 0.0592275448
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 9.897332,
+            "upperBaselineAngle": 13.568572,
+            "rootRelativeY": -0.11220479,
+            "rootRelativeDistance": 0.06769154
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 12.98126,
+            "upperBaselineAngle": 7.1711154,
+            "rootRelativeY": 0.0872437954,
+            "rootRelativeDistance": 0.08204246
+          },
+          {
+            "bone": "Head",
+            "localAngle": 36.9820175,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.558351755,
+            "rootRelativeDistance": 0.09367967
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 76.24217,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.396688819,
+            "rootRelativeDistance": 0.09266014
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.98807,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.377535,
+            "rootRelativeDistance": 0.0622151867
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1485833,
+            "rootRelativeDistance": 0.04209147
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.535257936,
+            "rootRelativeDistance": 0.08440286
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9710148,
+            "rootRelativeDistance": 0.192836732
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.157140434,
+            "rootRelativeDistance": 0.0652565
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5241964,
+            "rootRelativeDistance": 0.0607272871
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9404034,
+            "rootRelativeDistance": 0.177133814
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "phase": 0.5,
+    "entries": [
+      {
+        "name": "Current",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 33.88043,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.159109,
+            "rootRelativeDistance": 0.175321415
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.9063854,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.115461707,
+            "rootRelativeDistance": 0.153177485
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 14.92065,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.09043503,
+            "rootRelativeDistance": 0.119154342
+          },
+          {
+            "bone": "Head",
+            "localAngle": 34.5382347,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.573250055,
+            "rootRelativeDistance": 0.07077693
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 65.465,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395190716,
+            "rootRelativeDistance": 0.06147578
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 100.883026,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3947295,
+            "rootRelativeDistance": 0.114815451
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.143300474,
+            "rootRelativeDistance": 0.1941891
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.530278444,
+            "rootRelativeDistance": 0.407816529
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9671101,
+            "rootRelativeDistance": 0.6356139
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.143336892,
+            "rootRelativeDistance": 0.155870065
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.384308577,
+            "rootRelativeDistance": 0.354979634
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.617723,
+            "rootRelativeDistance": 0.6045724
+          }
+        ]
+      },
+      {
+        "name": "No foot IK mask",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 33.88043,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.159109,
+            "rootRelativeDistance": 0.175321415
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.9063854,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.115461707,
+            "rootRelativeDistance": 0.153177485
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 14.92065,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.09043503,
+            "rootRelativeDistance": 0.119154342
+          },
+          {
+            "bone": "Head",
+            "localAngle": 34.5382347,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.573250055,
+            "rootRelativeDistance": 0.07077693
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 65.465,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395190716,
+            "rootRelativeDistance": 0.06147578
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 100.883026,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3947295,
+            "rootRelativeDistance": 0.114815377
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.143300474,
+            "rootRelativeDistance": 0.1941891
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.530278444,
+            "rootRelativeDistance": 0.407816529
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9671101,
+            "rootRelativeDistance": 0.6356139
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.143336892,
+            "rootRelativeDistance": 0.155870125
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.384308577,
+            "rootRelativeDistance": 0.354979634
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.617723,
+            "rootRelativeDistance": 0.6045724
+          }
+        ]
+      },
+      {
+        "name": "Root enabled",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 28.3508167,
+            "upperBaselineAngle": 9.849154,
+            "rootRelativeY": -0.164672792,
+            "rootRelativeDistance": 0.06909858
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.9063854,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.121151567,
+            "rootRelativeDistance": 0.08211368
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 14.92065,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0646899939,
+            "rootRelativeDistance": 0.0798682347
+          },
+          {
+            "bone": "Head",
+            "localAngle": 34.5382347,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.5322887,
+            "rootRelativeDistance": 0.0961034149
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 65.465,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3672576,
+            "rootRelativeDistance": 0.136213735
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 100.883026,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.357913256,
+            "rootRelativeDistance": 0.08765972
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.155208528,
+            "rootRelativeDistance": 0.0386292078
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5369377,
+            "rootRelativeDistance": 0.137850165
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9679374,
+            "rootRelativeDistance": 0.299486339
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.157267272,
+            "rootRelativeDistance": 0.0864675045
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.444408119,
+            "rootRelativeDistance": 0.126153976
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7325514,
+            "rootRelativeDistance": 0.318519
+          }
+        ]
+      },
+      {
+        "name": "Root + Body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 2.780877,
+            "upperBaselineAngle": 32.3288651,
+            "rootRelativeY": -0.151782036,
+            "rootRelativeDistance": 0.0221440755
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 21.9063854,
+            "rootRelativeY": -0.112531424,
+            "rootRelativeDistance": 0.0222223531
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 14.92065,
+            "rootRelativeY": 0.07111442,
+            "rootRelativeDistance": 0.0216775537
+          },
+          {
+            "bone": "Head",
+            "localAngle": 34.5382347,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.5442729,
+            "rootRelativeDistance": 0.0666849539
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 65.465,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.375736475,
+            "rootRelativeDistance": 0.080260396
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 100.883026,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3676169,
+            "rootRelativeDistance": 0.0683493242
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.14983052,
+            "rootRelativeDistance": 0.0176760443
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4798665,
+            "rootRelativeDistance": 0.0174092352
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8579116,
+            "rootRelativeDistance": 0.0216337182
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.169498146,
+            "rootRelativeDistance": 0.0242577717
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.531983,
+            "rootRelativeDistance": 0.0209833868
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9055892,
+            "rootRelativeDistance": 0.0214082133
+          }
+        ]
+      },
+      {
+        "name": "Source reference",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 33.88043,
+            "rootRelativeY": -0.151968122,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 21.9063854,
+            "rootRelativeY": -0.112848461,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 14.92065,
+            "rootRelativeY": 0.0699877739,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Head",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 34.5382347,
+            "rootRelativeY": 0.5152719,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 65.465,
+            "rootRelativeY": 0.441406965,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 100.883026,
+            "rootRelativeY": 0.4264493,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.149220586,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.477251053,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.85376817,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.170829356,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5340002,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.907353759,
+            "rootRelativeDistance": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Filtered body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 18.9924488,
+            "upperBaselineAngle": 20.5445671,
+            "rootRelativeY": -0.156910121,
+            "rootRelativeDistance": 0.0492836833
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 10.8928738,
+            "upperBaselineAngle": 14.1197739,
+            "rootRelativeY": -0.1150834,
+            "rootRelativeDistance": 0.0545493662
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 13.730999,
+            "upperBaselineAngle": 4.797966,
+            "rootRelativeY": 0.0772779,
+            "rootRelativeDistance": 0.06136318
+          },
+          {
+            "bone": "Head",
+            "localAngle": 34.5382347,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.5424166,
+            "rootRelativeDistance": 0.07269088
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 65.465,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3781469,
+            "rootRelativeDistance": 0.107140139
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 100.883026,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.369756818,
+            "rootRelativeDistance": 0.06637053
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.15582937,
+            "rootRelativeDistance": 0.0244500842
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5177379,
+            "rootRelativeDistance": 0.07861267
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9263182,
+            "rootRelativeDistance": 0.155183241
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.159908652,
+            "rootRelativeDistance": 0.06268288
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.493863523,
+            "rootRelativeDistance": 0.08043169
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8396074,
+            "rootRelativeDistance": 0.19279474
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "phase": 0.625,
+    "entries": [
+      {
+        "name": "Current",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 34.6868553,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.231640637,
+            "rootRelativeDistance": 0.196574941
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.1298084,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.187919736,
+            "rootRelativeDistance": 0.175750464
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 14.2604513,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.009181619,
+            "rootRelativeDistance": 0.133601516
+          },
+          {
+            "bone": "Head",
+            "localAngle": 21.959919,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.49034214,
+            "rootRelativeDistance": 0.0456182435
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 58.4904556,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.31337,
+            "rootRelativeDistance": 0.111798361
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 109.004646,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.313366532,
+            "rootRelativeDistance": 0.124630265
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.219707668,
+            "rootRelativeDistance": 0.218984947
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.59399116,
+            "rootRelativeDistance": 0.434440434
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -1.01860261,
+            "rootRelativeDistance": 0.6584234
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.219704211,
+            "rootRelativeDistance": 0.1608965
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.389759779,
+            "rootRelativeDistance": 0.306461066
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.6222638,
+            "rootRelativeDistance": 0.543127835
+          }
+        ]
+      },
+      {
+        "name": "No foot IK mask",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 34.6868553,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.231640637,
+            "rootRelativeDistance": 0.196574941
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.1298084,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.187919736,
+            "rootRelativeDistance": 0.175750464
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 14.2604513,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.009181619,
+            "rootRelativeDistance": 0.133601516
+          },
+          {
+            "bone": "Head",
+            "localAngle": 21.959919,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.49034214,
+            "rootRelativeDistance": 0.0456182435
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 58.4904556,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.31337,
+            "rootRelativeDistance": 0.111798361
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 109.004646,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.313366532,
+            "rootRelativeDistance": 0.124630205
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.219707668,
+            "rootRelativeDistance": 0.218984947
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.59399116,
+            "rootRelativeDistance": 0.434440434
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -1.01860261,
+            "rootRelativeDistance": 0.6584234
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.219704211,
+            "rootRelativeDistance": 0.160896555
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.389759779,
+            "rootRelativeDistance": 0.306461066
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.6222638,
+            "rootRelativeDistance": 0.543127835
+          }
+        ]
+      },
+      {
+        "name": "Root enabled",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 26.6542816,
+            "upperBaselineAngle": 11.5261993,
+            "rootRelativeY": -0.161356628,
+            "rootRelativeDistance": 0.0575473569
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 21.1298084,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.11870569,
+            "rootRelativeDistance": 0.06589458
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 14.2604513,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0501731634,
+            "rootRelativeDistance": 0.0600146465
+          },
+          {
+            "bone": "Head",
+            "localAngle": 21.959919,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.50888586,
+            "rootRelativeDistance": 0.09380107
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 58.4904556,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.35264802,
+            "rootRelativeDistance": 0.123163462
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 109.004646,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3352778,
+            "rootRelativeDistance": 0.07740659
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.154764533,
+            "rootRelativeDistance": 0.0234623887
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5034182,
+            "rootRelativeDistance": 0.147653937
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.899302244,
+            "rootRelativeDistance": 0.3010532
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.162506044,
+            "rootRelativeDistance": 0.07450373
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.3998611,
+            "rootRelativeDistance": 0.13644138
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7011201,
+            "rootRelativeDistance": 0.288352966
+          }
+        ]
+      },
+      {
+        "name": "Root + Body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 3.27968764,
+            "upperBaselineAngle": 32.0785866,
+            "rootRelativeY": -0.152870059,
+            "rootRelativeDistance": 0.02286512
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 21.1298084,
+            "rootRelativeY": -0.114342332,
+            "rootRelativeDistance": 0.0232452042
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 14.2604513,
+            "rootRelativeY": 0.0589612722,
+            "rootRelativeDistance": 0.0240299329
+          },
+          {
+            "bone": "Head",
+            "localAngle": 21.959919,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.5180646,
+            "rootRelativeDistance": 0.06765527
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 58.4904556,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3624885,
+            "rootRelativeDistance": 0.0720734
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 109.004646,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.343385458,
+            "rootRelativeDistance": 0.06781086
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1540451,
+            "rootRelativeDistance": 0.01848139
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.446623921,
+            "rootRelativeDistance": 0.0209865924
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7791804,
+            "rootRelativeDistance": 0.0297285486
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1712637,
+            "rootRelativeDistance": 0.0240258276
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4835294,
+            "rootRelativeDistance": 0.0201720279
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8577157,
+            "rootRelativeDistance": 0.0305614881
+          }
+        ]
+      },
+      {
+        "name": "Source reference",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 34.6868553,
+            "rootRelativeY": -0.150193632,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 21.1298084,
+            "rootRelativeY": -0.11203146,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 14.2604513,
+            "rootRelativeY": 0.0585343838,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Head",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 21.959919,
+            "rootRelativeY": 0.488588572,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 58.4904556,
+            "rootRelativeY": 0.4172175,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 109.004646,
+            "rootRelativeY": 0.399791479,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.149973869,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4365303,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.763647854,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.171114922,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.487524271,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8646154,
+            "rootRelativeDistance": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Filtered body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 21.8606148,
+            "upperBaselineAngle": 20.3205967,
+            "rootRelativeY": -0.157272756,
+            "rootRelativeDistance": 0.0456723236
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 12.7219467,
+            "upperBaselineAngle": 13.5505209,
+            "rootRelativeY": -0.116608262,
+            "rootRelativeDistance": 0.0476508774
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 15.52956,
+            "upperBaselineAngle": 7.17253542,
+            "rootRelativeY": 0.06463647,
+            "rootRelativeDistance": 0.0543884672
+          },
+          {
+            "bone": "Head",
+            "localAngle": 21.959919,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.5158372,
+            "rootRelativeDistance": 0.0716002956
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 58.4904556,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3632146,
+            "rootRelativeDistance": 0.101968877
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 109.004646,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3458426,
+            "rootRelativeDistance": 0.05932455
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1581071,
+            "rootRelativeDistance": 0.0173255745
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4804994,
+            "rootRelativeDistance": 0.110717729
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8445235,
+            "rootRelativeDistance": 0.2095306
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.165847659,
+            "rootRelativeDistance": 0.06133478
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.44751054,
+            "rootRelativeDistance": 0.113439433
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.79402566,
+            "rootRelativeDistance": 0.221572191
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "phase": 0.75,
+    "entries": [
+      {
+        "name": "Current",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 40.10812,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.158202946,
+            "rootRelativeDistance": 0.238940462
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 16.4935284,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.114548564,
+            "rootRelativeDistance": 0.213537559
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 12.0451756,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0911275148,
+            "rootRelativeDistance": 0.147045091
+          },
+          {
+            "bone": "Head",
+            "localAngle": 11.9833689,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.574739,
+            "rootRelativeDistance": 0.164672822
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 86.7411346,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395413637,
+            "rootRelativeDistance": 0.03740894
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.49617,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395880938,
+            "rootRelativeDistance": 0.05476924
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.142550766,
+            "rootRelativeDistance": 0.266141266
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.511956453,
+            "rootRelativeDistance": 0.5270564
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9264944,
+            "rootRelativeDistance": 0.783129632
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.14251554,
+            "rootRelativeDistance": 0.207967222
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.215286374,
+            "rootRelativeDistance": 0.382441521
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.511405349,
+            "rootRelativeDistance": 0.635663867
+          }
+        ]
+      },
+      {
+        "name": "No foot IK mask",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 40.10812,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.158202946,
+            "rootRelativeDistance": 0.238940462
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 16.4935284,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.114548564,
+            "rootRelativeDistance": 0.213537559
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 12.0451756,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0911275148,
+            "rootRelativeDistance": 0.147045091
+          },
+          {
+            "bone": "Head",
+            "localAngle": 11.9833689,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.574739,
+            "rootRelativeDistance": 0.164672822
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 86.7411346,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395413637,
+            "rootRelativeDistance": 0.03740894
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.49617,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.395880938,
+            "rootRelativeDistance": 0.0547693074
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.142550766,
+            "rootRelativeDistance": 0.266141266
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.511956453,
+            "rootRelativeDistance": 0.5270564
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9264944,
+            "rootRelativeDistance": 0.783129632
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.14251554,
+            "rootRelativeDistance": 0.207967222
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.215286374,
+            "rootRelativeDistance": 0.382441521
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.511405349,
+            "rootRelativeDistance": 0.6356638
+          }
+        ]
+      },
+      {
+        "name": "Root enabled",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 21.3292942,
+            "upperBaselineAngle": 23.1133766,
+            "rootRelativeY": -0.134720445,
+            "rootRelativeDistance": 0.05018855
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 16.4935284,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.09350318,
+            "rootRelativeDistance": 0.05431216
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 12.0451756,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.05335188,
+            "rootRelativeDistance": 0.0482651964
+          },
+          {
+            "bone": "Head",
+            "localAngle": 11.9833689,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.4776305,
+            "rootRelativeDistance": 0.104888782
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 86.7411346,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.330556154,
+            "rootRelativeDistance": 0.09411822
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.49617,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.323765039,
+            "rootRelativeDistance": 0.04467802
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1337421,
+            "rootRelativeDistance": 0.0201424025
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.493613,
+            "rootRelativeDistance": 0.10916549
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.826315939,
+            "rootRelativeDistance": 0.236113623
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.141645551,
+            "rootRelativeDistance": 0.064356856
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.3577084,
+            "rootRelativeDistance": 0.117591813
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.754076838,
+            "rootRelativeDistance": 0.17834498
+          }
+        ]
+      },
+      {
+        "name": "Root + Body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 5.30007267,
+            "upperBaselineAngle": 36.38754,
+            "rootRelativeY": -0.129077733,
+            "rootRelativeDistance": 0.0291185975
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 16.4935284,
+            "rootRelativeY": -0.09081346,
+            "rootRelativeDistance": 0.0302162748
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 12.0451756,
+            "rootRelativeY": 0.0676642656,
+            "rootRelativeDistance": 0.0326863
+          },
+          {
+            "bone": "Head",
+            "localAngle": 11.9833689,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.482625961,
+            "rootRelativeDistance": 0.08140842
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 86.7411346,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.339418769,
+            "rootRelativeDistance": 0.0537773967
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.49617,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.332986832,
+            "rootRelativeDistance": 0.0365904272
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1367554,
+            "rootRelativeDistance": 0.024474591
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.479121029,
+            "rootRelativeDistance": 0.023716731
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.763345838,
+            "rootRelativeDistance": 0.0392387323
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.14304,
+            "rootRelativeDistance": 0.0301003419
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.407797933,
+            "rootRelativeDistance": 0.0341114
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.826314867,
+            "rootRelativeDistance": 0.05806028
+          }
+        ]
+      },
+      {
+        "name": "Source reference",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 40.10812,
+            "rootRelativeY": -0.121441007,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 16.4935284,
+            "rootRelativeY": -0.08379412,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 12.0451756,
+            "rootRelativeY": 0.06901789,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Head",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 11.9833689,
+            "rootRelativeY": 0.441882849,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 86.7411346,
+            "rootRelativeY": 0.366783738,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 99.49617,
+            "rootRelativeY": 0.357150555,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.125053942,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.455875278,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.727692,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.1413722,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.416718066,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8409078,
+            "rootRelativeDistance": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Filtered body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 20.1035137,
+            "upperBaselineAngle": 34.17553,
+            "rootRelativeY": -0.1278649,
+            "rootRelativeDistance": 0.0368514
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 10.3966589,
+            "upperBaselineAngle": 14.0810976,
+            "rootRelativeY": -0.09028584,
+            "rootRelativeDistance": 0.03345366
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 13.1005926,
+            "upperBaselineAngle": 4.834703,
+            "rootRelativeY": 0.06501889,
+            "rootRelativeDistance": 0.0281777717
+          },
+          {
+            "bone": "Head",
+            "localAngle": 11.9833689,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.484890938,
+            "rootRelativeDistance": 0.08632728
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 86.7411346,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.341081619,
+            "rootRelativeDistance": 0.07284847
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 99.49617,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3315636,
+            "rootRelativeDistance": 0.0262985174
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.138061821,
+            "rootRelativeDistance": 0.0192379281
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.47722888,
+            "rootRelativeDistance": 0.0679872558
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7519345,
+            "rootRelativeDistance": 0.156327561
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.142296135,
+            "rootRelativeDistance": 0.0520012826
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.414769173,
+            "rootRelativeDistance": 0.128459692
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.835481942,
+            "rootRelativeDistance": 0.193260476
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "phase": 0.875,
+    "entries": [
+      {
+        "name": "Current",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 33.7590523,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.234177,
+            "rootRelativeDistance": 0.28366667
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 12.480279,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.190455079,
+            "rootRelativeDistance": 0.259972364
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 12.4687109,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0067346096,
+            "rootRelativeDistance": 0.176773891
+          },
+          {
+            "bone": "Head",
+            "localAngle": 4.007972,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.487918019,
+            "rootRelativeDistance": 0.1282365
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 104.005508,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.310938716,
+            "rootRelativeDistance": 0.06987023
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 83.09336,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.310941458,
+            "rootRelativeDistance": 0.0606749468
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.222194672,
+            "rootRelativeDistance": 0.286346674
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5375145,
+            "rootRelativeDistance": 0.482877016
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9473213,
+            "rootRelativeDistance": 0.716639161
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.222195327,
+            "rootRelativeDistance": 0.258453518
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.373503149,
+            "rootRelativeDistance": 0.375147939
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7580787,
+            "rootRelativeDistance": 0.6143011
+          }
+        ]
+      },
+      {
+        "name": "No foot IK mask",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 33.7590523,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.234177,
+            "rootRelativeDistance": 0.28366667
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 12.480279,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.190455079,
+            "rootRelativeDistance": 0.259972364
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 12.4687109,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.0067346096,
+            "rootRelativeDistance": 0.176773891
+          },
+          {
+            "bone": "Head",
+            "localAngle": 4.007972,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.487918019,
+            "rootRelativeDistance": 0.1282365
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 104.005508,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.310938716,
+            "rootRelativeDistance": 0.06987017
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 83.09336,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.310941458,
+            "rootRelativeDistance": 0.0606749468
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.222194672,
+            "rootRelativeDistance": 0.286346674
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.5375145,
+            "rootRelativeDistance": 0.482877
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.9473213,
+            "rootRelativeDistance": 0.7166392
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.222195327,
+            "rootRelativeDistance": 0.258453518
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.373503149,
+            "rootRelativeDistance": 0.375147939
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.7580787,
+            "rootRelativeDistance": 0.6143011
+          }
+        ]
+      },
+      {
+        "name": "Root enabled",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 12.6441555,
+            "upperBaselineAngle": 24.8956165,
+            "rootRelativeY": -0.107218385,
+            "rootRelativeDistance": 0.04226226
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 12.480279,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.0679448247,
+            "rootRelativeDistance": 0.04492347
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 12.4687109,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.058986187,
+            "rootRelativeDistance": 0.04201892
+          },
+          {
+            "bone": "Head",
+            "localAngle": 4.007972,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.46824193,
+            "rootRelativeDistance": 0.106382832
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 104.005508,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.33715117,
+            "rootRelativeDistance": 0.07121898
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 83.09336,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.314597845,
+            "rootRelativeDistance": 0.0409782268
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.110547662,
+            "rootRelativeDistance": 0.0246071313
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.478733182,
+            "rootRelativeDistance": 0.0520966239
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.791381955,
+            "rootRelativeDistance": 0.12473876
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.120619953,
+            "rootRelativeDistance": 0.04911642
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.4103886,
+            "rootRelativeDistance": 0.0510966629
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8459558,
+            "rootRelativeDistance": 0.06708721
+          }
+        ]
+      },
+      {
+        "name": "Root + Body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 4.09779024,
+            "upperBaselineAngle": 30.18715,
+            "rootRelativeY": -0.105688095,
+            "rootRelativeDistance": 0.0321859457
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 12.480279,
+            "rootRelativeY": -0.0680260062,
+            "rootRelativeDistance": 0.0334704146
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 12.4687109,
+            "rootRelativeY": 0.08071303,
+            "rootRelativeDistance": 0.0379973538
+          },
+          {
+            "bone": "Head",
+            "localAngle": 4.007972,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.4680909,
+            "rootRelativeDistance": 0.0821544155
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 104.005508,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.346311331,
+            "rootRelativeDistance": 0.043902792
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 83.09336,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.3239956,
+            "rootRelativeDistance": 0.0310823414
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.113986969,
+            "rootRelativeDistance": 0.0294769723
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.487622678,
+            "rootRelativeDistance": 0.0204995777
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.777621567,
+            "rootRelativeDistance": 0.04298695
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.121547461,
+            "rootRelativeDistance": 0.030983679
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.430416524,
+            "rootRelativeDistance": 0.0183133725
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8658633,
+            "rootRelativeDistance": 0.02828521
+          }
+        ]
+      },
+      {
+        "name": "Source reference",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 33.7590523,
+            "rootRelativeY": -0.09091812,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 12.480279,
+            "rootRelativeY": -0.05448526,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 12.4687109,
+            "rootRelativeY": 0.0843417645,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "Head",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 4.007972,
+            "rootRelativeY": 0.429233074,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 104.005508,
+            "rootRelativeY": 0.366991758,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 83.09336,
+            "rootRelativeY": 0.341837525,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.09815413,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.46794343,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.738402843,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.112281084,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.43420583,
+            "rootRelativeDistance": 0.0
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8695064,
+            "rootRelativeDistance": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Filtered body",
+        "bones": [
+          {
+            "bone": "Hips",
+            "localAngle": 9.769426,
+            "upperBaselineAngle": 33.7785225,
+            "rootRelativeY": -0.102099657,
+            "rootRelativeDistance": 0.0274930578
+          },
+          {
+            "bone": "Spine",
+            "localAngle": 5.532099,
+            "upperBaselineAngle": 13.568572,
+            "rootRelativeY": -0.06627226,
+            "rootRelativeDistance": 0.0257245451
+          },
+          {
+            "bone": "Chest",
+            "localAngle": 7.151978,
+            "upperBaselineAngle": 7.1711154,
+            "rootRelativeY": 0.07594538,
+            "rootRelativeDistance": 0.02481857
+          },
+          {
+            "bone": "Head",
+            "localAngle": 4.007972,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.47318995,
+            "rootRelativeDistance": 0.08340293
+          },
+          {
+            "bone": "LeftUpperArm",
+            "localAngle": 104.005508,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.347302556,
+            "rootRelativeDistance": 0.0472011
+          },
+          {
+            "bone": "RightUpperArm",
+            "localAngle": 83.09336,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": 0.324748278,
+            "rootRelativeDistance": 0.0191313811
+          },
+          {
+            "bone": "LeftUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.112627745,
+            "rootRelativeDistance": 0.0173769388
+          },
+          {
+            "bone": "LeftLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.48570478,
+            "rootRelativeDistance": 0.0186439045
+          },
+          {
+            "bone": "LeftFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.749433756,
+            "rootRelativeDistance": 0.04925797
+          },
+          {
+            "bone": "RightUpperLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.122696638,
+            "rootRelativeDistance": 0.0366284736
+          },
+          {
+            "bone": "RightLowerLeg",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.449554443,
+            "rootRelativeDistance": 0.0642201751
+          },
+          {
+            "bone": "RightFoot",
+            "localAngle": 0.0,
+            "upperBaselineAngle": 0.0,
+            "rootRelativeY": -0.8832077,
+            "rootRelativeDistance": 0.0786267
+          }
+        ]
+      }
+    ]
+  }
+]

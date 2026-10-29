@@ -26,6 +26,7 @@ public class ZombieSpawner : MonoBehaviour
     private int _killedCount;
     private int _nextPoint;
     private float _spawnTimer;
+    private bool _isQuitting;
 
     public int MaxCount => _maxZombieCount;
     public int RemainingCount => Mathf.Max(0, _maxZombieCount - _killedCount);
@@ -34,12 +35,20 @@ public class ZombieSpawner : MonoBehaviour
 
     private void OnEnable()
     {
+        _isQuitting = false;
         RestartWave();
+    }
+
+    private void OnApplicationQuit()
+    {
+        _isQuitting = true;
     }
 
     private void OnDisable()
     {
-        DespawnAll();
+        // 종료 중인 씬의 루트 오브젝트를 풀 아래로 옮기면 Unity의 Transform 정리와 충돌한다.
+        // 종료 시에는 구독만 해제하고, 오브젝트 제거는 Unity에 맡긴다.
+        DespawnAll(!_isQuitting);
     }
 
     private void OnValidate()
@@ -94,6 +103,7 @@ public class ZombieSpawner : MonoBehaviour
             if (point == null || point.Position == null) continue;
 
             Zombie zombie = LeanPool.Spawn(_zombiePrefab, point.Position.position, point.Position.rotation);
+            zombie.Spawner = this;
             zombie.Configure(point.IdleMode, point.PatrolPoints);
             zombie.OnDied += OnZombieDied;
             zombie.OnDespawned += OnZombieDespawned;
@@ -128,14 +138,19 @@ public class ZombieSpawner : MonoBehaviour
         }
     }
 
-    private void DespawnAll()
+    private void DespawnAll(bool returnToPool = true)
     {
-        foreach (Zombie zombie in _spawnedZombies)
+        // 재컴파일 중 HashSet/이벤트가 초기화되어도 이 스포너가 만든 활성 좀비를 회수한다.
+        var zombies = new HashSet<Zombie>(_spawnedZombies);
+        foreach (Zombie zombie in FindObjectsByType<Zombie>(FindObjectsSortMode.None))
+            if (zombie.Spawner == this) zombies.Add(zombie);
+
+        foreach (Zombie zombie in zombies)
         {
             if (zombie == null) continue;
             zombie.OnDied -= OnZombieDied;
             zombie.OnDespawned -= OnZombieDespawned;
-            LeanPool.Despawn(zombie);
+            if (returnToPool) LeanPool.Despawn(zombie);
         }
 
         _spawnedZombies.Clear();

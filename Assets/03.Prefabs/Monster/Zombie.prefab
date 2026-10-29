@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 909730551397498622}
   - component: {fileID: -4344494087643995301}
   - component: {fileID: 8131634615677304788}
+  - component: {fileID: 6969992433573149720}
   m_Layer: 6
   m_Name: Zombie
   m_TagString: Untagged
@@ -771,7 +772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zombie
   _detectDistance: 10
-  _combackDistance: 20
+  _combackDistance: 40
+  _keepChasingPlayer: 1
   _attackRange: 1.5
   _attackInterval: 1.2
   _attackDamage: 10
@@ -816,7 +818,7 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0.7
-  m_AutoTraverseOffMeshLink: 1
+  m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
@@ -836,6 +838,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAnimation
   _animator: {fileID: 859890569596321728}
+--- !u!114 &6969992433573149720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529018861009984280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d76874e2b2b40d2833f288a68032a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombieJump
+  _jumpHeight: 1.5
+  _jumpDuration: 0.7
+  _jumpCooldown: 1.5
+  _allowUnlinkedJump: 1
+  _searchInterval: 0.25
+  _minJumpDistance: 1.5
+  _maxJumpDistance: 4.5
+  _minJumpUp: 0.8
+  _maxJumpUp: 1.5
+  _maxJumpDown: 5
+  _sampleRadius: 1.2
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
+  _arcSegments: 24
+  _debugLog: 0
 --- !u!1 &1548170605120761137
 GameObject:
   m_ObjectHideFlags: 0

@@ -116,6 +116,9 @@ internal sealed class ZombieTraceState : ZombieStateBase
     public ZombieTraceState(Zombie owner) : base(owner) { }
     public override void Tick(float deltaTime)
     {
+        // 점프 중에는 상태 전환/이동을 하지 않는다.
+        if (Owner.IsJumping) return;
+
         if (!Owner.HasPlayer || Owner.IsOutsideHomeRange)
         {
             Owner.ChangeState(ZombieState.Comeback);
@@ -128,7 +131,10 @@ internal sealed class ZombieTraceState : ZombieStateBase
             return;
         }
 
-        Owner.MoveTowards(Owner.PlayerPosition);
+        if (Owner.TryGetPlayerNavMeshPosition(out Vector3 destination))
+        {
+            Owner.MoveTowards(destination);
+        }
     }
 }
 
@@ -146,6 +152,8 @@ internal sealed class ZombieAttackState : ZombieStateBase
     public ZombieAttackState(Zombie owner) : base(owner) { }
     public override void Tick(float deltaTime)
     {
+        if (Owner.IsJumping) return;
+
         if (!Owner.IsPlayerInAttackRange)
         {
             Owner.ChangeState(Owner.HasPlayer ? ZombieState.Trace : ZombieState.Comeback);

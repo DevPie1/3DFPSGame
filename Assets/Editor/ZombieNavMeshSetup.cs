@@ -31,6 +31,7 @@ public static class ZombieNavMeshSetup
         surface.agentTypeID = 0;
         surface.center = Vector3.zero;
         surface.size = new Vector3(200f, 50f, 200f);
+        surface.minRegionArea = 0.5f; // 좁은 2층 발판도 NavMesh에서 제외되지 않게 한다.
 
         surface.BuildNavMesh();
 
@@ -58,6 +59,55 @@ public static class ZombieNavMeshSetup
 
         Debug.Log("[ZombieNavMesh] NavMesh 생성 완료. 씬을 저장한 뒤 Play로 확인하세요.");
         Selection.activeGameObject = surface.gameObject;
+    }
+
+    [MenuItem("Tools/Setup Zombie Jump")]
+    public static void SetupZombieJump()
+    {
+        SetupZombiePrefab();
+        AssetDatabase.SaveAssets();
+        Debug.Log("[ZombieJump] 좀비 프리팹에 점프 컴포넌트를 추가했습니다.");
+    }
+
+    [MenuItem("Tools/Debug Zombie Jump")]
+    public static void DebugZombieJump()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogWarning("[JumpDebug] Player 태그를 가진 오브젝트를 찾지 못했습니다.");
+            return;
+        }
+
+        Vector3 playerPosition = player.transform.position;
+        if (NavMesh.SamplePosition(playerPosition, out NavMeshHit hit, 3f, NavMesh.AllAreas))
+        {
+            Debug.Log(
+                $"[JumpDebug] 플레이어 위치의 NavMesh: {hit.position} " +
+                $"(거리 {Vector3.Distance(playerPosition, hit.position):F2})");
+        }
+        else
+        {
+            Debug.LogWarning(
+                "[JumpDebug] 플레이어 근처에 NavMesh가 없습니다. " +
+                "2층 발판이 NavMesh에 구워지지 않았을 가능성이 큽니다.");
+        }
+
+        Zombie[] zombies = Object.FindObjectsByType<Zombie>(FindObjectsSortMode.None);
+        foreach (Zombie zombie in zombies)
+        {
+            NavMeshAgent agent = zombie.GetComponent<NavMeshAgent>();
+            if (agent == null)
+            {
+                continue;
+            }
+
+            float height = playerPosition.y - zombie.transform.position.y;
+            Debug.Log(
+                $"[JumpDebug] {zombie.name}: state={zombie.State}, height={height:F2}, " +
+                $"path={agent.pathStatus}, onLink={agent.isOnOffMeshLink}, " +
+                $"position={zombie.transform.position}");
+        }
     }
 
     private static void SetupZombiePrefab()
@@ -98,6 +148,12 @@ public static class ZombieNavMeshSetup
             agent.stoppingDistance = 0.7f;
             agent.autoBraking = true;
             agent.updateRotation = true;
+            agent.autoTraverseOffMeshLink = false;
+
+            if (root.GetComponent<ZombieJump>() == null)
+            {
+                root.AddComponent<ZombieJump>();
+            }
 
             PrefabUtility.SaveAsPrefabAsset(root, ZombiePrefabPath);
         }

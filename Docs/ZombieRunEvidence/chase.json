@@ -1,0 +1,112 @@
+[
+  {
+    "frame": 0,
+    "time": 14.5083275,
+    "state": "Trace",
+    "speed": 4.9999814,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.06696019,
+    "lowerPhase": 0.162114158
+  },
+  {
+    "frame": 1,
+    "time": 14.6120672,
+    "state": "Trace",
+    "speed": 5.00002241,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.1346169,
+    "lowerPhase": 0.325914651
+  },
+  {
+    "frame": 2,
+    "time": 14.7148266,
+    "state": "Trace",
+    "speed": 5.00003338,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.201633856,
+    "lowerPhase": 0.488166243
+  },
+  {
+    "frame": 3,
+    "time": 14.81851,
+    "state": "Trace",
+    "speed": 5.00001526,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.2692536,
+    "lowerPhase": 0.651877165
+  },
+  {
+    "frame": 4,
+    "time": 14.9215422,
+    "state": "Trace",
+    "speed": 5.00002766,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.336447984,
+    "lowerPhase": 0.8145583
+  },
+  {
+    "frame": 5,
+    "time": 15.026268,
+    "state": "Trace",
+    "speed": 5.0000124,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.4047476,
+    "lowerPhase": 0.9799155
+  },
+  {
+    "frame": 6,
+    "time": 15.12808,
+    "state": "Trace",
+    "speed": 5.000009,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.471147269,
+    "lowerPhase": 1.14067245
+  },
+  {
+    "frame": 7,
+    "time": 15.22845,
+    "state": "Trace",
+    "speed": 4.99998856,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.536605239,
+    "lowerPhase": 1.29914927
+  },
+  {
+    "frame": 8,
+    "time": 15.3290825,
+    "state": "Trace",
+    "speed": 5.00081968,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.602235258,
+    "lowerPhase": 1.45804286
+  },
+  {
+    "frame": 9,
+    "time": 15.4314795,
+    "state": "Trace",
+    "speed": 5.00085258,
+    "baseRun": true,
+    "lowerRun": true,
+    "rootMotion": false,
+    "basePhase": 0.669016,
+    "lowerPhase": 1.61972237
+  }
+]

@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,16 +22,25 @@ public class PlayerGunFire : MonoBehaviour
 
     private LineRenderer _laser;
     private Camera _mainCamera;
+    private Animator _animator;
     private float _laserTimer;
 
     private float _fireTimer = 0f;
     private int _bulletCount = 0;
     private Coroutine _reloadCoroutine = null;
 
+    public int CurrentBulletCount => _bulletCount;
+    public int MaxBulletCount => _maxBulletCount;
+    public event Action<int, int> OnAmmoChanged;
+    public event Action OnShot;
+
 
     private void Awake()
     {
+        _bulletCount = _maxBulletCount;
         _mainCamera = Camera.main;
+        _animator = GetComponentInChildren<Animator>();
+
         if (_laserMaterial == null)
         {
             Debug.LogWarning("[PlayerGunFire] 레이저 머티리얼을 연결해 주세요.", this);
@@ -53,7 +63,7 @@ public class PlayerGunFire : MonoBehaviour
 
     private void Start()
     {
-        _bulletCount = _maxBulletCount;
+        OnAmmoChanged?.Invoke(_bulletCount, _maxBulletCount);
     }
 
 
@@ -75,8 +85,15 @@ public class PlayerGunFire : MonoBehaviour
         if (Input.GetButton("Fire1") && canShoot && _fireTimer <= 0f && _bulletCount > 0)
         {
             _bulletCount--;
+            OnAmmoChanged?.Invoke(_bulletCount, _maxBulletCount);
             _fireTimer = _fireInterval;
             Shoot();
+
+            // 서 있을 때만 총 쏘는 동작을 재생한다.
+            if (_animator != null && _animator.GetFloat("MoveMotion") < 0.1f)
+            {
+                _animator.SetTrigger("Attack");
+            }
 
             // 이 방식은: 이 모노비헤이비어가 등록한 모든 코루틴을 실행 취소
             // StopAllCoroutines();
@@ -103,6 +120,7 @@ public class PlayerGunFire : MonoBehaviour
         yield return new WaitForSeconds(_reloadingTime);
 
         _bulletCount = _maxBulletCount;
+        OnAmmoChanged?.Invoke(_bulletCount, _maxBulletCount);
 
         Debug.Log("재장전 완료!");
         _reloadCoroutine = null;
@@ -131,6 +149,7 @@ public class PlayerGunFire : MonoBehaviour
         bool isHit = Physics.Raycast(ray, out RaycastHit hitInfo, _range);
         Vector3 end = isHit ? hitInfo.point : ray.GetPoint(_range);
         ShowLaser(cameraTransform, end);
+        OnShot?.Invoke();
 
         if (!isHit) return;
         if (_hitEffectPrefab != null)

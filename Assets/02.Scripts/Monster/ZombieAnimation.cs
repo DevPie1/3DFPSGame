@@ -106,7 +106,16 @@ public class ZombieAnimation : MonoBehaviour
         }
 
         _animator.SetBool(_deadHash, false);
+        _animator.ResetTrigger(_attackHash);
+        _animator.ResetTrigger(_hitHash);
         _animator.SetFloat(_speedHash, 0f);
         _animator.Play("Idle", 0, 0f);
+
+        // 독립 재생하는 하체도 풀에서 재사용될 때 Idle부터 시작한다.
+        int legsLayer = _animator.GetLayerIndex("Injured Run Legs");
+        if (legsLayer >= 0)
+        {
+            _animator.Play("Idle", legsLayer, 0f);
+        }
     }
 }

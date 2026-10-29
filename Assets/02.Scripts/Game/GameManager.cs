@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameState State => _state;
 
     [SerializeField] private TextMeshProUGUI _stateText;
+    [SerializeField] private Animator _playerAnimator;
 
 
     private void Awake()
@@ -32,9 +33,19 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        StartCoroutine(StartSequence_Coroutine());
+        if (_instance != null && _instance != this) return;
+
+        // Play 중 도메인 리로드에서는 Awake 없이 OnEnable만 다시 호출된다.
+        _instance = this;
+        if (_state == GameState.Ready) StartCoroutine(StartSequence_Coroutine());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        if (_instance == this) _instance = null;
     }
 
     private IEnumerator StartSequence_Coroutine()
@@ -65,6 +76,11 @@ public class GameManager : MonoBehaviour
         }
 
         _state = GameState.GameOver;
+
+        if (_playerAnimator != null)
+        {
+            _playerAnimator.SetFloat("MoveMotion", 0f);
+        }
 
         if (_stateText == null)
         {
