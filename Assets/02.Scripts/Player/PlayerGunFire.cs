@@ -23,6 +23,7 @@ public class PlayerGunFire : MonoBehaviour
     private LineRenderer _laser;
     private Camera _mainCamera;
     private Animator _animator;
+    private PlayerWeapons _weapons;
     private float _laserTimer;
 
     private float _fireTimer = 0f;
@@ -34,12 +35,15 @@ public class PlayerGunFire : MonoBehaviour
     public event Action<int, int> OnAmmoChanged;
     public event Action OnShot;
 
+    public void SetMuzzle(Transform muzzle) => _muzzle = muzzle;
+
 
     private void Awake()
     {
         _bulletCount = _maxBulletCount;
         _mainCamera = Camera.main;
         _animator = GetComponentInChildren<Animator>();
+        _weapons = GetComponent<PlayerWeapons>();
 
         if (_laserMaterial == null)
         {
@@ -80,17 +84,25 @@ public class PlayerGunFire : MonoBehaviour
         // 1. 마우스 왼쪽 버튼 입력 받기
         // 커서가 잠겨 있고, 마우스가 UI 위에 있지 않을 때만 쏜다.
         bool isPointerOverUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
-        bool canShoot = Cursor.lockState == CursorLockMode.Locked && !isPointerOverUI;
+        bool canShoot = Cursor.lockState == CursorLockMode.Locked && !isPointerOverUI && Time.timeScale > 0f
+            && (GameManager.Instance == null || GameManager.Instance.State == GameState.Playing);
 
-        if (Input.GetButton("Fire1") && canShoot && _fireTimer <= 0f && _bulletCount > 0)
+        // 탄이 없거나 발사 대기 중이어도 좌클릭하면 먼저 1번 총을 든다.
+        if (canShoot && Input.GetButtonDown("Fire1") && _weapons != null && _weapons.Mode == WeaponMode.Melee)
+        {
+            _weapons.ChangeWeaponMode(WeaponMode.Normal);
+        }
+
+        if (Input.GetButton("Fire1") && canShoot && (_weapons == null || _weapons.Mode != WeaponMode.Melee)
+            && _fireTimer <= 0f && _bulletCount > 0)
         {
             _bulletCount--;
             OnAmmoChanged?.Invoke(_bulletCount, _maxBulletCount);
             _fireTimer = _fireInterval;
             Shoot();
 
-            // 서 있을 때만 총 쏘는 동작을 재생한다.
-            if (_animator != null && _animator.GetFloat("MoveMotion") < 0.1f)
+            // 상체 Fire Layer만 재생하므로 이동 중에도 하체를 덮지 않는다.
+            if (_animator != null)
             {
                 _animator.SetTrigger("Attack");
             }
@@ -158,7 +170,13 @@ public class PlayerGunFire : MonoBehaviour
             effect.Play();
         }
 
-        hitInfo.collider.GetComponentInParent<IDamageable>()?.TakeDamage(_damage);
+        hitInfo.collider.GetComponentInParent<IDamageable>()?.TakeDamage(new DamageInfo
+        {
+            Value = _damage,
+            HitPoint = hitInfo.point,
+            HitNormal = hitInfo.normal,
+            Attacker = gameObject
+        });
     }
 
     private void ShowLaser(Transform cameraTransform, Vector3 end)

@@ -13,6 +13,8 @@ public class EasyFpsWeaponFeedback : MonoBehaviour
 
     private readonly List<GameObject> _activeFlashes = new List<GameObject>();
 
+    public void SetMuzzle(Transform muzzle) => _muzzle = muzzle;
+
     private void Awake()
     {
         if (_gun == null) _gun = GetComponent<PlayerGunFire>();

@@ -154,6 +154,13 @@ internal sealed class ZombieAttackState : ZombieStateBase
     {
         if (Owner.IsJumping) return;
 
+        if (Owner.IsAttackCommitted)
+        {
+            Owner.StandStill();
+            Elapsed += deltaTime;
+            return;
+        }
+
         if (!Owner.IsPlayerInAttackRange)
         {
             Owner.ChangeState(Owner.HasPlayer ? ZombieState.Trace : ZombieState.Comeback);
@@ -190,7 +197,7 @@ internal sealed class ZombieDeathState : ZombieStateBase
     public override void Enter()
     {
         base.Enter();
-        Owner.DisableAgent();
+        Owner.EnterDeath();
     }
 
     public override void Tick(float deltaTime)

@@ -17,6 +17,8 @@ public class PlayerBombFire : MonoBehaviour
     [SerializeField, Min(0f)] private float _throwDuration = 0.78f;
 
     private Animator _animator;
+    private PlayerWeapons _weapons;
+    private bool _chargingWithMouse;
     private Coroutine _throwCoroutine;
     private static readonly int _throwHash = Animator.StringToHash("ThrowBomb");
 
@@ -44,6 +46,7 @@ public class PlayerBombFire : MonoBehaviour
     {
         _currentBombs = _maxBombs;
         _animator = GetComponentInChildren<Animator>();
+        _weapons = GetComponent<PlayerWeapons>();
     }
 
     private void Start()
@@ -75,11 +78,15 @@ public class PlayerBombFire : MonoBehaviour
     {
         // 폭탄이 없거나 재장전 중이면 충전을 시작하지 않는다.
         bool overUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
-        if (Input.GetKeyDown(_throwKey) && !overUI && !_isReloading && _throwCoroutine == null && _currentBombs > 0)
+        bool mouseDown = _weapons != null && _weapons.Mode == WeaponMode.Normal && Input.GetButtonDown("Fire2");
+        if ((Input.GetKeyDown(_throwKey) || mouseDown) && !overUI && !_isReloading && _throwCoroutine == null && _currentBombs > 0)
         {
             _isCharging = true;
+            _chargingWithMouse = mouseDown;
             _chargeTime = 0f;
         }
+
+        if (_isCharging && _chargingWithMouse && _weapons.Mode != WeaponMode.Normal) CancelCharge();
 
         if (_isCharging)
         {
@@ -87,7 +94,8 @@ public class PlayerBombFire : MonoBehaviour
         }
 
         // 버튼을 떼는 순간 모은 힘으로 던진다.
-        if (Input.GetKeyUp(_throwKey) && _isCharging)
+        bool released = _chargingWithMouse ? Input.GetButtonUp("Fire2") : Input.GetKeyUp(_throwKey);
+        if (released && _isCharging)
         {
             _isCharging = false;
             Throw();

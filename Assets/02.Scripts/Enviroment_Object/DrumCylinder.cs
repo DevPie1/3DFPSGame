@@ -22,6 +22,8 @@ public class DrumCylinder : MonoBehaviour, IDamageable
         _rigidbody = GetComponent<Rigidbody>();
     }
 
+    public void TakeDamage(DamageInfo damageInfo) => TakeDamage(damageInfo.Value);
+
     public void TakeDamage(float damage)
     {
         if (_health <= 0)

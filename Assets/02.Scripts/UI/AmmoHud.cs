@@ -11,6 +11,7 @@ public class AmmoHud : MonoBehaviour
     [SerializeField] private Image _weaponImage;
     [SerializeField] private Sprite _rifleSprite;
     [SerializeField] private Sprite _sniperSprite;
+    [SerializeField] private Sprite _meleeSprite;
     [SerializeField] private UI_ScopeOverlay _scopeOverlay;
     [SerializeField] private Graphic _normalCrosshair;
 
@@ -23,9 +24,11 @@ public class AmmoHud : MonoBehaviour
     {
         if (_weapons == null) return;
         _weapons.OnModeChanged += RefreshMode;
+        _weapons.OnScopeChanged += RefreshScope;
         _weapons.OnAmmoChanged += RefreshAmmo;
         _weapons.OnBombCountChanged += RefreshBombs;
         RefreshMode(_weapons.Mode);
+        RefreshScope(_weapons.IsScoped);
         RefreshAmmo(_weapons.CurrentAmmo, _weapons.MaxAmmo);
         RefreshBombs(_weapons.RemainingBombs);
     }
@@ -35,6 +38,7 @@ public class AmmoHud : MonoBehaviour
         if (_weapons != null)
         {
             _weapons.OnModeChanged -= RefreshMode;
+            _weapons.OnScopeChanged -= RefreshScope;
             _weapons.OnAmmoChanged -= RefreshAmmo;
             _weapons.OnBombCountChanged -= RefreshBombs;
         }
@@ -44,8 +48,17 @@ public class AmmoHud : MonoBehaviour
 
     private void RefreshMode(WeaponMode mode)
     {
-        bool scoped = mode == WeaponMode.Sniper;
-        if (_weaponImage != null) _weaponImage.sprite = scoped ? _sniperSprite : _rifleSprite;
+        if (_weaponImage == null) return;
+        switch (mode)
+        {
+            case WeaponMode.Melee: _weaponImage.sprite = _meleeSprite; break;
+            case WeaponMode.Sniper: _weaponImage.sprite = _sniperSprite; break;
+            default: _weaponImage.sprite = _rifleSprite; break;
+        }
+    }
+
+    private void RefreshScope(bool scoped)
+    {
         if (_scopeOverlay != null) _scopeOverlay.enabled = scoped;
         if (_normalCrosshair != null) _normalCrosshair.enabled = !scoped;
     }

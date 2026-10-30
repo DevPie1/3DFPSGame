@@ -1,5 +1,7 @@
 # 그린 스파르탄 검 반복 시연
 
+현재 GameScene은 [20장 근접 무기](MeleeCombat20.md) 구성이다. 아래는 초기 반복 시연 기록이며, 현재는 숫자 3과 우클릭으로 한 번씩 벤다.
+
 GameScene을 Play하면 기존 1인칭 시점에서 JTS Katana를 오른손에 쥐고 Free Sword Animations의 `slash3`를 약 1.08초마다 반복한다. 이번 구성은 모션 시연이며 검 타격/데미지 판정은 없다.
 
 ## 씬 구성

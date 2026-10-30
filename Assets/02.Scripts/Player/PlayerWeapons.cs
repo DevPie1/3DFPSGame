@@ -4,8 +4,9 @@ using UnityEngine.EventSystems;
 
 public enum WeaponMode
 {
-    Rifle,
-    Sniper
+    Normal,
+    Sniper,
+    Melee
 }
 
 // 무기 상태를 모아 알린다. UI는 입력이나 개별 무기 구현을 알 필요가 없다.
@@ -21,11 +22,17 @@ public class PlayerWeapons : MonoBehaviour
     private float _normalFieldOfView;
 
     public WeaponMode Mode { get; private set; }
+    public bool IsScoped { get; private set; }
+    public bool CanUseInput => Application.isFocused && Time.timeScale > 0f
+        && Cursor.lockState == CursorLockMode.Locked
+        && (GameManager.Instance == null || GameManager.Instance.State == GameState.Playing)
+        && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject());
     public int CurrentAmmo => _gun != null ? _gun.CurrentBulletCount : 0;
     public int MaxAmmo => _gun != null ? _gun.MaxBulletCount : 0;
     public int RemainingBombs => _bomb != null ? _bomb.CurrentBombs : 0;
 
     public event Action<WeaponMode> OnModeChanged;
+    public event Action<bool> OnScopeChanged;
     public event Action<int, int> OnAmmoChanged;
     public event Action<int> OnBombCountChanged;
 
@@ -45,7 +52,7 @@ public class PlayerWeapons : MonoBehaviour
 
     private void Start()
     {
-        // 검 시연처럼 발사 컴포넌트가 꺼져 있어도 모든 Awake 이후 초기 상태를 알린다.
+        // 모든 Awake 이후 초기 상태를 알린다.
         OnModeChanged?.Invoke(Mode);
         OnAmmoChanged?.Invoke(CurrentAmmo, MaxAmmo);
         OnBombCountChanged?.Invoke(RemainingBombs);
@@ -60,24 +67,35 @@ public class PlayerWeapons : MonoBehaviour
 
     private void Update()
     {
-        bool canAim = Application.isFocused && Time.timeScale > 0f && Cursor.lockState == CursorLockMode.Locked
-            && (GameManager.Instance == null || GameManager.Instance.State == GameState.Playing)
-            && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject());
-        SetScoped(canAim && Input.GetMouseButton(1));
+        if (CanUseInput)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeWeaponMode(WeaponMode.Normal);
+            else if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeWeaponMode(WeaponMode.Sniper);
+            else if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeWeaponMode(WeaponMode.Melee);
+        }
+        SetScoped(CanUseInput && Mode == WeaponMode.Sniper && Input.GetMouseButton(1));
 
         if (_aimCamera != null)
         {
-            float target = Mode == WeaponMode.Sniper ? _sniperFieldOfView : _normalFieldOfView;
+            float target = IsScoped ? _sniperFieldOfView : _normalFieldOfView;
             _aimCamera.fieldOfView = Mathf.MoveTowards(_aimCamera.fieldOfView, target, _zoomSpeed * Time.unscaledDeltaTime);
         }
     }
 
+    public void ChangeWeaponMode(WeaponMode mode)
+    {
+        if (mode < WeaponMode.Normal || mode > WeaponMode.Melee || Mode == mode) return;
+        SetScoped(false);
+        Mode = mode;
+        OnModeChanged?.Invoke(Mode);
+    }
+
     public void SetScoped(bool scoped)
     {
-        WeaponMode next = scoped && _aimCamera != null ? WeaponMode.Sniper : WeaponMode.Rifle;
-        if (Mode == next) return;
-        Mode = next;
-        OnModeChanged?.Invoke(Mode);
+        bool next = scoped && Mode == WeaponMode.Sniper && _aimCamera != null;
+        if (IsScoped == next) return;
+        IsScoped = next;
+        OnScopeChanged?.Invoke(IsScoped);
     }
 
     private void OnApplicationFocus(bool focused)

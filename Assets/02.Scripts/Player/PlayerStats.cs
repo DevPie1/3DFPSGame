@@ -102,6 +102,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
         _sprintLocked = false;
     }
 
+    public void TakeDamage(DamageInfo damageInfo) => TakeDamage(damageInfo.Value);
+
     public void TakeDamage(float damage)
     {
         if (damage <= 0f || IsDead)

@@ -67,12 +67,38 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
     private Transform[] _activePatrolPoints;
     private ZombieIdleMode _activeIdleMode;
     [SerializeField, HideInInspector] private ZombieSpawner _spawner;
+    [Header("피격 효과")][SerializeField] private GameObject _hitEffectPrefab;
+
+    [Header("엘리트")][SerializeField] private bool _superArmor;
+    [SerializeField, Min(0f)] private float _smashRadius;
+    [SerializeField] private ParticleSystem _smashEffectPrefab;
+    [SerializeField] private GameObject _smashWarningPrefab;
+    [SerializeField] private LayerMask _smashTargetMask;
+    [SerializeField, Min(0.01f)] private float _smashImpactTime = 0.45f;
+    [SerializeField, Min(0.1f)] private float _smashAnimationTime = 1.1f;
+    [SerializeField] private bool _enrageAtHalfHealth;
+    [SerializeField, Min(1f)] private float _enragedSpeedMultiplier = 1.5f;
+
+    [Header("골드")][SerializeField] private Gold _goldPrefab;
+    [SerializeField, Min(0)] private int _goldCount = 3;
+    [SerializeField] private bool _randomizeGoldCount;
+    [SerializeField] private Gold _bonusGoldPrefab;
+
+    private readonly HashSet<IDamageable> _smashTargets = new HashSet<IDamageable>();
+    private CapsuleCollider _bodyCollider;
+    private GameObject _smashWarning;
+    private bool _smashCommitted;
+    private bool _smashPending;
+    private float _smashElapsed;
+    private bool _isEnraged;
+    private bool _goldDropped;
 
     internal ZombieSpawner Spawner { get => _spawner; set => _spawner = value; }
 
     public float MaxHealth => _maxHealth;
     public float Health => _health;
     public bool IsDead => _state == ZombieState.Death;
+    public bool IsEnraged => _isEnraged;
 
     public event Action<float, float> OnHealthChanged;
     public event Action<Zombie> OnDied;
@@ -83,6 +109,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
     public ZombieState State => _state;
     public float AgentVelocity => _agent != null ? _agent.velocity.magnitude : 0f;
     internal bool IsJumping => _jump != null && _jump.IsJumping;
+    internal bool IsAttackCommitted => _smashCommitted;
 
     internal float AttackInterval => _attackInterval;
     internal float WaypointWaitTime => _waypointWaitTime;
@@ -123,6 +150,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         }
 
         _agent = GetComponent<NavMeshAgent>();
+        _bodyCollider = GetComponent<CapsuleCollider>();
         if (_agent == null)
         {
             Debug.LogError("[Zombie] NavMeshAgent가 없습니다.", this);
@@ -151,6 +179,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         }
 
         if (IsJumping && !IsDead) return;
+        if (_smashCommitted) TickSmash(Time.deltaTime);
         _currentState?.Tick(Time.deltaTime);
     }
 
@@ -170,6 +199,10 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
         _isSpawned = true;
         _health = _maxHealth;
+        _isEnraged = false;
+        _goldDropped = false;
+        CancelSmash();
+        if (_bodyCollider != null) _bodyCollider.enabled = true;
         _activePatrolPoints = _patrolPoints;
         _activeIdleMode = _idleMode;
 
@@ -213,6 +246,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         }
 
         _isSpawned = false;
+        CancelSmash();
         _currentState?.Exit();
         _currentState = null;
         DisableAgent();
@@ -229,13 +263,40 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
     public void TakeDamage(float damage)
     {
+        TakeDamage(new DamageInfo { Value = damage, HitPoint = transform.position, HitNormal = Vector3.up });
+    }
+
+    public void TakeDamage(DamageInfo damageInfo)
+    {
+        float damage = damageInfo.Value;
         if (damage <= 0f || !_isSpawned || IsDead)
         {
             return;
         }
 
         _health = Mathf.Max(0f, _health - damage);
-        ChangeState(_health > 0f ? ZombieState.Hit : ZombieState.Death);
+        if (_hitEffectPrefab != null)
+        {
+            Vector3 normal = damageInfo.HitNormal.sqrMagnitude > 0.001f ? damageInfo.HitNormal : Vector3.up;
+            GameObject effect = Instantiate(_hitEffectPrefab, damageInfo.HitPoint, Quaternion.LookRotation(normal));
+            Destroy(effect, 2f);
+        }
+        if (_health <= 0f)
+        {
+            ChangeState(ZombieState.Death);
+        }
+        else
+        {
+            if (_enrageAtHalfHealth && !_isEnraged && _health < _maxHealth * 0.5f)
+            {
+                _isEnraged = true;
+                _agent.speed = _moveSpeed * _enragedSpeedMultiplier;
+            }
+            if (!_superArmor) ChangeState(ZombieState.Hit);
+            else if (_state == ZombieState.Idle || _state == ZombieState.Patrol
+                || _state == ZombieState.Roam || _state == ZombieState.Comeback)
+                ChangeState(ZombieState.Trace);
+        }
         OnHealthChanged?.Invoke(_health, _maxHealth);
         if (IsDead)
         {
@@ -245,6 +306,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
     internal void ChangeState(ZombieState state)
     {
+        if (state == ZombieState.Death || state == ZombieState.Hit) CancelSmash();
         _currentState?.Exit();
         _state = state;
         _currentState = _states[state];
@@ -387,11 +449,82 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
 
     internal void AttackPlayer()
     {
-        if (IsPlayerInAttackRange)
+        if (!IsPlayerInAttackRange || _smashCommitted) return;
+        if (_smashRadius > 0f)
         {
-            _playerDamageable?.TakeDamage(_attackDamage);
-            OnAttackPerformed?.Invoke();
+            _smashCommitted = true;
+            _smashPending = true;
+            _smashElapsed = 0f;
+            if (_smashWarningPrefab != null)
+            {
+                _smashWarning = Instantiate(_smashWarningPrefab, FeetPosition + Vector3.up * 0.03f, Quaternion.identity);
+                _smashWarning.transform.localScale = new Vector3(_smashRadius * 2f, 1f, _smashRadius * 2f);
+            }
         }
+        else _playerDamageable?.TakeDamage(_attackDamage);
+        OnAttackPerformed?.Invoke();
+    }
+
+    private void TickSmash(float deltaTime)
+    {
+        StandStill();
+        _smashElapsed += deltaTime;
+        // 보통은 애니메이션 이벤트가 처리한다. 전환/컬링으로 이벤트가 누락되어도 공격은 끝난다.
+        if (_smashPending && _smashElapsed >= _smashImpactTime + 0.15f) OnAttackHit();
+        if (_smashElapsed >= _smashAnimationTime) _smashCommitted = false;
+    }
+
+    public void OnAttackHit()
+    {
+        if (!_isSpawned || IsDead || !_smashPending) return;
+        _smashPending = false; // 하체 레이어에서도 같은 이벤트가 와도 한 번만 친다.
+        ClearSmashWarning();
+        if (_smashEffectPrefab != null)
+        {
+            ParticleSystem effect = Instantiate(_smashEffectPrefab, FeetPosition, _smashEffectPrefab.transform.rotation);
+            effect.Play();
+        }
+        _smashTargets.Clear();
+        foreach (Collider target in Physics.OverlapSphere(transform.position, _smashRadius, _smashTargetMask, QueryTriggerInteraction.Ignore))
+        {
+            IDamageable damageable = target.GetComponentInParent<IDamageable>();
+            if (damageable == null || ReferenceEquals(damageable, this) || !_smashTargets.Add(damageable)) continue;
+            damageable.TakeDamage(new DamageInfo
+            {
+                Value = _attackDamage,
+                HitPoint = target.bounds.ClosestPoint(transform.position),
+                HitNormal = (transform.position - target.bounds.center).normalized,
+                Attacker = gameObject
+            });
+        }
+    }
+
+    private void ClearSmashWarning()
+    {
+        if (_smashWarning == null) return;
+        _smashWarning.SetActive(false);
+        Destroy(_smashWarning);
+        _smashWarning = null;
+    }
+
+    private void CancelSmash()
+    {
+        _smashCommitted = false;
+        _smashPending = false;
+        _smashElapsed = 0f;
+        ClearSmashWarning();
+    }
+
+    internal void EnterDeath()
+    {
+        DisableAgent();
+        if (_bodyCollider != null) _bodyCollider.enabled = false;
+        if (_goldDropped) return;
+        _goldDropped = true;
+        int count = _randomizeGoldCount ? UnityEngine.Random.Range(Mathf.Max(0, _goldCount - 1), _goldCount + 2) : _goldCount;
+        if (_goldPrefab != null)
+            for (int i = 0; i < count; i++) Instantiate(_goldPrefab, transform.position, UnityEngine.Random.rotation);
+        if (_bonusGoldPrefab != null) Instantiate(_bonusGoldPrefab, transform.position, UnityEngine.Random.rotation);
     }
 
     private void EnableAgent()
@@ -402,7 +535,7 @@ public class Zombie : MonoBehaviour, IDamageable, IPoolable
         }
 
         _agent.enabled = true;
-        _agent.speed = _moveSpeed;
+        _agent.speed = _moveSpeed * (_isEnraged ? _enragedSpeedMultiplier : 1f);
         _agent.stoppingDistance = _arrivalDistance;
         _agent.acceleration = Mathf.Max(8f, _moveSpeed * 2f);
         _agent.angularSpeed = 360f;
